@@ -474,10 +474,6 @@ Function to handle when user click button
 const handlePostback = (sender_psid, received_postback) => {
   let payload = received_postback.payload;
 
-  if (payload === 'get_started') {
-    greetUser(sender_psid);
-  }
-
   switch (payload) {
     case "get_started":
       greetUser(sender_psid);
@@ -600,56 +596,29 @@ const showButtonReplyNo = (sender_psid) => {
   callSend(sender_psid, response);
 }
 
-const thankyouReply = (sender_psid, name, img_url) => {
-  let response = {
-    "attachment": {
-      "type": "template",
-      "payload": {
-        "template_type": "generic",
-        "elements": [{
-          "title": "Thank you! " + name,
-          "image_url": img_url,
-          "buttons": [{
-              "type": "postback",
-              "title": "Yes!",
-              "payload": "yes",
-            },
-            {
-              "type": "postback",
-              "title": "No!",
-              "payload": "no",
-            }
-          ],
-        }]
-      }
-    }
-  }
-  callSend(sender_psid, response);
+const defaultReply = (sender_psid) => {
+  let response1 = {
+    "text": "To test text reply, type 'text'"
+  };
+  let response2 = {
+    "text": "To test quick reply, type 'quick'"
+  };
+  let response3 = {
+    "text": "To test button reply, type 'button'"
+  };
+  let response4 = {
+    "text": "To test webview, type 'webview'"
+  };
+  callSend(sender_psid, response1).then(() => {
+    return callSend(sender_psid, response2).then(() => {
+      return callSend(sender_psid, response3).then(() => {
+        return callSend(sender_psid, response4);
+      });
+    });
+  });
 }
 
-// const defaultReply = (sender_psid) => {
-//   let response1 = {
-//     "text": "To test text reply, type 'text'"
-//   };
-//   let response2 = {
-//     "text": "To test quick reply, type 'quick'"
-//   };
-//   let response3 = {
-//     "text": "To test button reply, type 'button'"
-//   };
-//   let response4 = {
-//     "text": "To test webview, type 'webview'"
-//   };
-//   callSend(sender_psid, response1).then(() => {
-//     return callSend(sender_psid, response2).then(() => {
-//       return callSend(sender_psid, response3).then(() => {
-//         return callSend(sender_psid, response4);
-//       });
-//     });
-//   });
-// }
-
-function getUserProfile(sender_psid) {
+const getUserProfile = (sender_psid) => {
   return new Promise(resolve => {
     request({
       "uri": "https://graph.facebook.com/" + sender_psid + "?fields=first_name,last_name,profile_pic&access_token=EAAC0Amc4MRgBAGR5JMXzFDQBBZCbHRjOkVPeKg3UokgQzZAYlIAZBQoPnwsKo6FZBmSOd5kPm16TUJEFdveL9iZA4IAG2EN1IozqH17jKueHNU2rPObJYjxkL6Kq3WttHxYhaj83SGYNK9ZBEtYXkJTOiXVV9key1xS8WZCpWXoQy3bluiMysR5IYlm1Q9QfVQZD",
@@ -667,7 +636,7 @@ function getUserProfile(sender_psid) {
 
 /*FUNCTION TO GREET USER*/
 
-async function defaultReply(sender_psid) {
+async function greetUser(sender_psid) {
   let user = await getUserProfile(sender_psid);
   let response1 = {
     "text": "မင်္ဂလာပါ " + user.first_name + " " + user.last_name + ". New Hope Grocery မှ ကြိုဆိုပါတယ်ခင်ဗျ 🙂"
