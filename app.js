@@ -473,6 +473,11 @@ Function to handle when user click button
 **********************************************/
 const handlePostback = (sender_psid, received_postback) => {
   let payload = received_postback.payload;
+
+  if (payload === 'get_started') {
+    greetUser(sender_psid);
+  }
+  
   switch (payload) {
     case "get_started":
       greetUser(sender_psid);
