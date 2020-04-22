@@ -3,13 +3,49 @@ const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const APP_URL = "https://newhope-grocery-store.herokuapp.com";
 
 
+//new text
+
 // Imports dependencies and set up http server
 const 
   request = require('request'),
   express = require('express'),
   body_parser = require('body-parser'),
   firebase = require("firebase-admin"),
+  ejs = require("ejs"),  
+  fs = require('fs'),
+  multer  = require('multer'),  
   app = express(); 
+
+let bot_q = {
+  askPhone: false,
+  askHotel: false,
+  askRestaurent:false
+}
+
+let user_input = {};
+
+
+
+
+  
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  }
+})
+
+const upload = multer({ storage: storage });
+
+// parse application/x-www-form-urlencoded
+app.use(body_parser.json());
+app.use(body_parser.urlencoded());
+
+
+app.set('view engine', 'ejs');
+app.set('views', __dirname+'/views');
 
 
 var firebaseConfig = {
@@ -26,7 +62,8 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-let db = firebase.firestore();
+let db = firebase.firestore(); 
+let bucket = firebase.storage().bucket();
 
 
 
@@ -69,6 +106,148 @@ app.post('/webhook', (req, res) => {
 
 });
 
+
+app.use('/uploads', express.static('uploads'));
+
+/*********************************************
+START Eye of Eagle
+**********************************************/
+
+app.get('/addpackage/:sender_id',function(req,res){
+    const sender_id = req.params.sender_id;
+    res.render('addpackage.ejs',{title:"Hi!! from WebView", sender_id:sender_id});
+});
+
+
+app.post('/addpackage',function(req,res){
+
+
+      
+      let image  = req.body.image; 
+      let title = req.body.title;
+      let description = req.body.description;
+      let sender = req.body.sender;   
+
+      db.collection('package').add({
+            image: image,
+            title: title,
+            description: description
+          }).then(success => {             
+             ThankYouEagle(sender);    
+          }).catch(error => {
+            console.log(error);
+      });        
+});
+
+
+app.get('/booktour/:tour_package/:sender_id',function(req,res){
+    const tour_package = req.params.tour_package;
+    const sender_id = req.params.sender_id;
+    res.render('booktour.ejs',{title:"Book Tour Package", tour_package:tour_package, sender_id:sender_id});
+});
+
+
+app.post('/booktour',function(req,res){
+      let name  = req.body.name;
+      let mobile = req.body.mobile;
+      let tour_package = req.body.tour_package;
+      let sender = req.body.sender;   
+
+
+      db.collection('Tour Package Bookings').doc(tour_package).collection('customers').add({           
+            name:name,
+            mobile:mobile 
+          }).then(success => {             
+             ThankYouEagle(sender);    
+          }).catch(error => {
+            console.log(error);
+      });        
+});
+
+app.get('/privatetour/:sender_id',function(req,res){    
+    const sender_id = req.params.sender_id;
+    res.render('privatetour.ejs',{title:"Create Your Own Private Tour", sender_id:sender_id});
+});
+
+
+app.post('/privatetour',function(req,res){
+      
+      let destination= req.body.destination;
+      let activities = req.body.activities;
+      let guests = req.body.guests;
+      let travel_mode = req.body.travel_mode;
+      let travel_option = req.body.travel_option;
+      let hotel = req.body.hotel;
+      let restaurent= req.body.restaurent;
+      let name  = req.body.name;
+      let mobile = req.body.mobile;
+      let sender = req.body.sender;   
+
+      db.collection('Private Tour Bookings').add({
+            destination:destination,
+            activities:activities,
+            guests:guests,
+            travel_mode:travel_mode,
+            travel_option:travel_option,
+            hotel:hotel,
+            restaurent:restaurent,            
+            name:name,
+            mobile:mobile
+          }).then(success => {             
+             ThankYouEagle(sender);    
+          }).catch(error => {
+            console.log(error);
+      });        
+});
+
+
+/*********************************************
+END Eye of Eagle
+**********************************************/
+
+
+
+
+
+
+
+//webview test
+app.get('/webview/:sender_id',function(req,res){
+    const sender_id = req.params.sender_id;
+    res.render('webview.ejs',{title:"Hello!! from WebView", sender_id:sender_id});
+});
+
+app.post('/webview',upload.single('file'),function(req,res){
+       
+      let name  = req.body.name;
+      let email = req.body.email;
+      let img_url = APP_URL + "/" + req.file.path;
+      let sender = req.body.sender;    
+
+      bucket.upload(img_url, function(err, file, apiResponse) {
+          console.log("UPLOADED TO BUCKET");
+      }); 
+
+      /*
+      bucket.upload(img_url).then(data => {
+      console.log('upload success');
+      }).catch(err => {
+          console.log('error uploading to storage', err);
+      });
+
+      */  
+      
+      db.collection('booking').add({
+            name: name,
+            email: email,
+            image: img_url
+          }).then(success => {   
+             console.log("DATA SAVED")
+             thankyouReply(sender, name, img_url);    
+          }).catch(error => {
+            console.log(error);
+      });        
+});
 
 //Set up Get Started Button. To run one time
 //eg https://newhope-grocery-store.herokuapp.com/setgsbutton
