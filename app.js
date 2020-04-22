@@ -183,9 +183,9 @@ const handleMessage = (sender_psid, received_message) => {
     let user_message = received_message.text.toLowerCase();
 
     switch (user_message) {
-      case "Hi":
+      case "hi":
         greetUser(sender_psid);
-      case "text":
+      case "hein":
         textReply(sender_psid);
         break;
       case "quick":
