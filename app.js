@@ -477,7 +477,7 @@ const handlePostback = (sender_psid, received_postback) => {
   if (payload === 'get_started') {
     greetUser(sender_psid);
   }
-  
+
   switch (payload) {
     case "get_started":
       greetUser(sender_psid);
@@ -627,31 +627,31 @@ const thankyouReply = (sender_psid, name, img_url) => {
   callSend(sender_psid, response);
 }
 
-const defaultReply = (sender_psid) => {
-  let response1 = {
-    "text": "To test text reply, type 'text'"
-  };
-  let response2 = {
-    "text": "To test quick reply, type 'quick'"
-  };
-  let response3 = {
-    "text": "To test button reply, type 'button'"
-  };
-  let response4 = {
-    "text": "To test webview, type 'webview'"
-  };
-  callSend(sender_psid, response1).then(() => {
-    return callSend(sender_psid, response2).then(() => {
-      return callSend(sender_psid, response3).then(() => {
-        return callSend(sender_psid, response4);
-      });
-    });
-  });
-}
+// const defaultReply = (sender_psid) => {
+//   let response1 = {
+//     "text": "To test text reply, type 'text'"
+//   };
+//   let response2 = {
+//     "text": "To test quick reply, type 'quick'"
+//   };
+//   let response3 = {
+//     "text": "To test button reply, type 'button'"
+//   };
+//   let response4 = {
+//     "text": "To test webview, type 'webview'"
+//   };
+//   callSend(sender_psid, response1).then(() => {
+//     return callSend(sender_psid, response2).then(() => {
+//       return callSend(sender_psid, response3).then(() => {
+//         return callSend(sender_psid, response4);
+//       });
+//     });
+//   });
+// }
 
 /*FUNCTION TO GREET USER*/
 
-async function greetUser(sender_psid) {
+async function defaultReply(sender_psid) {
   let user = await getUserProfile(sender_psid);
   let response1 = {
     "text": "မင်္ဂလာပါ " + user.first_name + " " + user.last_name + ". New Hope Grocery မှ ကြိုဆိုပါတယ်ခင်ဗျ 🙂"
