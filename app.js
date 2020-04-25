@@ -149,186 +149,67 @@ Function to Handle when user send text message
 ***********************************************/
 
 const handleMessage = (sender_psid, received_message) => {
-  //let message;
-  let response;
+  let user_message = received_message.text.toLowerCase();
 
-  if (received_message.attachments) {
-    let attachment_url = received_message.attachments[0].payload.url;
-    response = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [{
-            "title": "Is this the right picture?",
-            "subtitle": "Tap a button to answer.",
-            "image_url": attachment_url,
-            "buttons": [{
-                "type": "postback",
-                "title": "Yes!",
-                "payload": "yes-attachment",
-              },
-              {
-                "type": "postback",
-                "title": "No!",
-                "payload": "no-attachment",
-              }
-            ],
-          }]
-        }
-      }
-    }
-    callSend(sender_psid, response);
-  } else {
-    let user_message = received_message.text.toLowerCase();
-
-    switch (user_message) {
-      case "hi":
-        greetUser(sender_psid);
-      case "hein":
-        textReply(sender_psid);
-        break;
-      case "quick":
-        quickReply(sender_psid);
-        break;
-      case "button":
-        buttonReply(sender_psid);
-        break;
-      case "webview":
-        webviewTest(sender_psid);
-        break;
-      case "eagle":
-        eyeofEagle(sender_psid);
-        break;
-      case "admin":
-        adminCreatePackage(sender_psid);
-        break;
-      case "customer":
-        selectMode(sender_psid);
-        break;
-      case "tour packages":
-        showTourPackages(sender_psid);
-        break;
-      case "private tour":
-        privateTour(sender_psid);
-        break;
-      case "amend tour":
-        amendTour(sender_psid);
-        break;
-      case "change hotel":
-        askHotel(sender_psid);
-        break;
-      case "change restaurent":
-        askRestaurent(sender_psid);
-        break;
-      case "add book":
-        addBooks(sender_psid);
-        break;
-      case "add review":
-        addReview(sender_psid);
-        break;
-      case "gone with the wind":
-        goneWithTheWind(sender_psid)
-        break;
-      case "effy":
-        Effy(sender_psid)
-        break;
-      case "hobby":
-        Hobby(sender_psid)
-        break;
-      default:
-        defaultReply(sender_psid);
-    }
+  switch (user_message) {
+    case "hi":
+      getStarted(sender_psid);
+    case "hein":
+      textReply(sender_psid);
+      break;
+    case "quick":
+      quickReply(sender_psid);
+      break;
+    case "button":
+      buttonReply(sender_psid);
+      break;
+    case "webview":
+      webviewTest(sender_psid);
+      break;
+    case "eagle":
+      eyeofEagle(sender_psid);
+      break;
+    case "admin":
+      adminCreatePackage(sender_psid);
+      break;
+    case "customer":
+      selectMode(sender_psid);
+      break;
+    case "tour packages":
+      showTourPackages(sender_psid);
+      break;
+    case "private tour":
+      privateTour(sender_psid);
+      break;
+    case "amend tour":
+      amendTour(sender_psid);
+      break;
+    case "change hotel":
+      askHotel(sender_psid);
+      break;
+    case "change restaurent":
+      askRestaurent(sender_psid);
+      break;
+    case "add book":
+      addBooks(sender_psid);
+      break;
+    case "add review":
+      addReview(sender_psid);
+      break;
+    case "gone with the wind":
+      goneWithTheWind(sender_psid)
+      break;
+    case "effy":
+      Effy(sender_psid)
+      break;
+    case "hobby":
+      Hobby(sender_psid)
+      break;
+    default:
+      defaultReply(sender_psid);
   }
-
 }
 
-/*********************************************
-START Eye of Eagle
-**********************************************/
-
-const eyeofEagle = (sender_psid) => {
-  let response = {
-    "text": `Are you "admin" or "customer"?`,
-  };
-  callSend(sender_psid, response);
-}
-
-
-const amendTour = (sender_psid) => {
-  let response = {
-    "text": `Do you want to change hotel or restaurent?`,
-  };
-  callSend(sender_psid, response);
-}
-
-const askHotel = (sender_psid) => {
-  bot_q.askHotel = true;
-  let response = {
-    "text": `Enter name of the hotel you want to stay`,
-  };
-  callSend(sender_psid, response);
-}
-
-
-const askRestaurent = (sender_psid) => {
-  bot_q.askRestaurent = true;
-  let response = {
-    "text": `Enter name of the restaurent you want to go`,
-  };
-  callSend(sender_psid, response);
-}
-
-const askPhone = (sender_psid) => {
-  bot_q.askPhone = true;
-
-  let response = {
-    "text": `Please enter your mobile number which you used before`,
-  };
-  callSend(sender_psid, response);
-}
-
-const updatePrivateTour = (sender_psid, phone, field) => {
-
-  let query = db.collection('Private Tour Bookings').where('mobile', '==', phone).limit(1).get()
-    .then(snapshot => {
-      if (snapshot.empty) {
-        console.log('No matching documents.');
-        let response = {
-          "text": `No users with that phone number`,
-        };
-        callSend(sender_psid, response);
-        return;
-      }
-
-      const booking = snapshot.docs[0];
-
-
-
-      if (user_input.hotel) {
-        booking.ref.update({
-          hotel: user_input.hotel
-        });
-      }
-
-      if (user_input.restaurent) {
-        booking.ref.update({
-          restaurent: user_input.restaurent
-        });
-      }
-
-
-
-
-    })
-    .catch(err => {
-      console.log('Error getting documents', err);
-    });
-
-
-
-  ThankYouEagle(sender_psid);
-}
 
 
 const selectMode = (sender_psid) => {
@@ -455,17 +336,6 @@ function privateTour(sender_psid) {
   callSendAPI(sender_psid, response);
 }
 
-const ThankYouEagle = (sender_psid) => {
-  let response = {
-    "text": `Your data is saved`,
-  };
-  callSend(sender_psid, response);
-}
-
-/*********************************************
-END Eye of Eagle
-**********************************************/
-
 
 
 /*********************************************
@@ -577,22 +447,6 @@ const buttonReply = (sender_psid) => {
       }
     }
   }
-
-
-  callSend(sender_psid, response);
-}
-
-const showButtonReplyYes = (sender_psid) => {
-  let response = {
-    "text": "You clicked YES"
-  };
-  callSend(sender_psid, response);
-}
-
-const showButtonReplyNo = (sender_psid) => {
-  let response = {
-    "text": "You clicked NO"
-  };
   callSend(sender_psid, response);
 }
 
@@ -632,6 +486,16 @@ const getUserProfile = (sender_psid) => {
       }
     });
   });
+}
+
+/* FUNCTION TO GETSTARTED */
+
+async function getStarted(sender_psid) {
+  let user = await getUserProfile(sender_psid);
+  let response = {
+    "text": "Hi" + user.first_name + " " + user.last_name + ". Welcome to Newhope.'\n'🇺🇸 Please choose the language below.'\n' 🇲🇲 မိ မိႏွ စ္ သက္ ရာ ဘာ သာ စကား ကိုေ ရြး ပါ။ '\n' 🇲🇲 မိ မိ နှ စ် သက် ရာ ဘာ သာ စကား ကို ရွေး ပါ။ "
+  }
+  callSend(sender_psid, response);
 }
 
 /*FUNCTION TO GREET USER*/
