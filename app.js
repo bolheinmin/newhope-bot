@@ -144,6 +144,31 @@ function handleQuickReply(sender_psid, received_message) {
 
 }
 
+
+/*********************************************
+Function to handle when user click button
+**********************************************/
+const handlePostback = (sender_psid, received_postback) => {
+  let payload = received_postback.payload;
+
+  switch (payload) {
+    case "get_started":
+      greetUser(sender_psid);
+      break;
+    case "food-package":
+      meals(sender_psid);
+      break;
+    case "yes":
+      showButtonReplyYes(sender_psid);
+      break;
+    case "no":
+      showButtonReplyNo(sender_psid);
+      break;
+    default:
+      defaultReply(sender_psid);
+  }
+}
+
 /**********************************************
 Function to Handle when user send text message
 ***********************************************/
@@ -328,28 +353,6 @@ function privateTour(sender_psid) {
   callSendAPI(sender_psid, response);
 }
 
-
-
-/*********************************************
-Function to handle when user click button
-**********************************************/
-const handlePostback = (sender_psid, received_postback) => {
-  let payload = received_postback.payload;
-
-  switch (payload) {
-    case "get_started":
-      greetUser(sender_psid);
-      break;
-    case "yes":
-      showButtonReplyYes(sender_psid);
-      break;
-    case "no":
-      showButtonReplyNo(sender_psid);
-      break;
-    default:
-      defaultReply(sender_psid);
-  }
-}
 
 
 function webviewTest(sender_psid) {
