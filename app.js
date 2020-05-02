@@ -237,7 +237,7 @@ const selectMode = (sender_psid) => {
 
 const showTourPackages = (sender_psid) => {
 
-  db.collection('package').get()
+  db.collection('meals').get()
     .then((snapshot) => {
       let elementItems = [];
 
@@ -248,10 +248,10 @@ const showTourPackages = (sender_psid) => {
 
         var obj = {};
         //obj._id  = doc.id ;        
-        obj.title = doc.data().title;
+        obj.title = doc.data().name;
 
 
-        obj.image_url = doc.data().image;
+        obj.image_url = doc.data().imageUrl;
         obj.buttons = [{
           "type": "web_url",
           "title": "BOOK NOW",
