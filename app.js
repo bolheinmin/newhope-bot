@@ -154,14 +154,6 @@ const handleMessage = (sender_psid, received_message) => {
   switch (user_message) {
     case "hi":
       getStarted(sender_psid);
-    case "hein":
-      textReply(sender_psid);
-      break;
-    case "quick":
-      quickReply(sender_psid);
-      break;
-    case "button":
-      buttonReply(sender_psid);
       break;
     case "webview":
       webviewTest(sender_psid);
@@ -175,8 +167,8 @@ const handleMessage = (sender_psid, received_message) => {
     case "customer":
       selectMode(sender_psid);
       break;
-    case "tour packages":
-      showTourPackages(sender_psid);
+    case "meals":
+      meals(sender_psid);
       break;
     case "private tour":
       privateTour(sender_psid);
@@ -235,7 +227,7 @@ const selectMode = (sender_psid) => {
 }
 
 
-const showTourPackages = (sender_psid) => {
+const meals = (sender_psid) => {
 
   db.collection('meals').get()
     .then((snapshot) => {
@@ -347,6 +339,7 @@ const handlePostback = (sender_psid, received_postback) => {
   switch (payload) {
     case "get_started":
       greetUser(sender_psid);
+      break;
     case "yes":
       showButtonReplyYes(sender_psid);
       break;
