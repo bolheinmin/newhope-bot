@@ -262,8 +262,6 @@ const meals = (sender_psid) => {
           "type": "web_url",
           "title": "BOOK NOW",
           "url": "https://newhope-grocery-store.herokuapp.com/booktour/" + obj.title + "/" + sender_psid,
-          "webview_height_ratio": "full",
-          "messenger_extensions": true
         }];
 
         elementItems.push(obj);
