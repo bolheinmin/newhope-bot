@@ -185,6 +185,12 @@ const handlePostback = (sender_psid, received_postback) => {
     case "search-meals":
       searchMeals(sender_psid);
       break;
+    case "today-meals":
+      todayMeals(sender_psid);
+      break;
+    case "pop-meals":
+      popMeals(sender_psid);
+      break;
     case "search-by-category":
       searchByCategory(sender_psid);
       break;
@@ -405,6 +411,127 @@ const searchMeals = (sender_psid) => {
       }
     }
   };
+  callSend(sender_psid, response);
+}
+
+const todayMeals = (sender_psid) => {
+  let response;
+  response = {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "generic",
+        "elements": [{
+            "title": "ကြက်ဥကြော်နှပ်",
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/new-hope-a1a0b.appspot.com/o/%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%2F%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%A5%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA%E1%80%94%E1%80%BE%E1%80%95%E1%80%BA_1588502464494?alt=media&token=6bec9703-435b-478f-9f58-8dfc306be98e",
+            "subtitle": "ဘယ်သူမဆိုဒီလိုပူအိုက်တဲ့ရာသီမှာအနှစ်ပါတဲ့ဟင်းတွေ၊ဆီပါတဲ့ဟင်းတွေကိုစားချင်ကြမှာမဟုတ်ဘူး။ဒီဟင်းပွဲလေးကတော့ ထမင်းဖြူလေးနဲ့နယ်ဖတ်စားရင်တောင်အရသာရှိမှာအမှန်ပါပဲ။",
+            "buttons": [{
+                "type": "postback",
+                "title": "View ingredients",
+                "payload": "ch-two-ingre"
+              },
+              {
+                "type": "postback",
+                "title": "How to cook?",
+                "payload": "ch-two-how-to"
+              },
+
+              {
+                "type": "web_url",
+                "url": "https://new-hope-a1a0b.web.app/meals/2L7hx52K7Fd4pTkgfvjC?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%A5%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA%E1%80%94%E1%80%BE%E1%80%95%E1%80%BA",
+                "title": "Shop Now",
+                "webview_height_ratio": "full",
+                "messenger_extensions": true,
+              }
+            ]
+          },
+          {
+            "title": "ကဗျာလွတ်ကုန်းဘောင်ကြော်",
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/new-hope-a1a0b.appspot.com/o/%E1%80%9D%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%2F%E1%80%80%E1%80%97%E1%80%BB%E1%80%AC%E1%80%9C%E1%80%BD%E1%80%90%E1%80%BA%E1%80%80%E1%80%AF%E1%80%94%E1%80%BA%E1%80%B8%E1%80%98%E1%80%B1%E1%80%AC%E1%80%84%E1%80%BA%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA.jpeg?alt=media&token=d3d25a4b-8ba1-42bb-88b7-27fa293cc474",
+            "subtitle": "ဒီဟင်းပွဲအတွက်မည်သည့်အသားကိုမဆိုအသုံးပြုနိူင်ပါတယ်။ ကြက်၊ ဝက်၊ အမဲ၊ဆိတ်။ ကျွန်တော်က ဝက်လိုင်းသားလေးအသုံးပြုထားပါတယ်။",
+            "buttons": [{
+                "type": "postback",
+                "title": "View ingredients",
+                "payload": "pork-two-ingre"
+              }, {
+                "type": "postback",
+                "title": "How to cook?",
+                "payload": "pork-two-how-to"
+              },
+              {
+                "type": "web_url",
+                "url": "https://new-hope-a1a0b.web.app/meals/fZllELy9hfhmjlU3UKUb?meal=%E1%80%80%E1%80%97%E1%80%BB%E1%80%AC%E1%80%9C%E1%80%BD%E1%80%90%E1%80%BA%E1%80%80%E1%80%AF%E1%80%94%E1%80%BA%E1%80%B8%E1%80%98%E1%80%B1%E1%80%AC%E1%80%84%E1%80%BA%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
+                "title": "Shop Now",
+                "webview_height_ratio": "full",
+                "messenger_extensions": true,
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+  callSend(sender_psid, response);
+}
+
+const popMeals = (sender_psid) => {
+  let response;
+  response = {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "generic",
+        "elements": [{
+            "title": "ကင်းမွန်အချိုချက်",
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/new-hope-a1a0b.appspot.com/o/%E1%80%95%E1%80%84%E1%80%BA%E1%80%9C%E1%80%9A%E1%80%BA%E1%80%85%E1%80%AC%2F%E1%80%80%E1%80%84%E1%80%BA%E1%80%B8%E1%80%99%E1%80%BD%E1%80%94%E1%80%BA%E1%80%A1%E1%80%81%E1%80%BB%E1%80%AD%E1%80%AF%E1%80%81%E1%80%BB%E1%80%80%E1%80%BA.jpeg?alt=media&token=b0863152-24a5-4df6-876a-284bb75b2289",
+            "subtitle": "ဒီတစ်ခါ နွေရာသီပူပူမှာခံတွင်းလိုက်စေမယ့်ဟင်းလေးတစ်မယ်ဖော်ပြပေးလိုက်ပါတယ်။",
+            "buttons": [{
+                "type": "postback",
+                "title": "View ingredients",
+                "payload": "sf-one-ingre"
+              },
+              {
+                "type": "postback",
+                "title": "How to cook?",
+                "payload": "sf-one-how-to"
+              },
+              {
+                "type": "web_url",
+                "url": "https://new-hope-a1a0b.web.app/meals/8U5AFaFTILZe5S5wv8HN?meal=%E1%80%80%E1%80%84%E1%80%BA%E1%80%B8%E1%80%99%E1%80%BD%E1%80%94%E1%80%BA%E1%80%A1%E1%80%81%E1%80%BB%E1%80%AD%E1%80%AF%E1%80%81%E1%80%BB%E1%80%80%E1%80%BA",
+                "title": "Shop Now",
+                "webview_height_ratio": "full",
+                "messenger_extensions": true,
+              }
+            ]
+          },
+          {
+            "title": "ကြက်သားပင်စိမ်းအစပ်ကြော်",
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/new-hope-a1a0b.appspot.com/o/%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%2F%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%95%E1%80%84%E1%80%BA%E1%80%85%E1%80%AD%E1%80%99%E1%80%BA%E1%80%B8%E1%80%A1%E1%80%85%E1%80%95%E1%80%BA%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA.jpeg?alt=media&token=34e0760e-07ab-495b-98ba-185667a906aa",
+            "subtitle": "ဆောင်းရာသီနဲ့လိုက်ဖက်တဲ့ဟင်းလေးတစ်ခွက်ချက်စားကြရအောင်။ ထိုင်းလိုတော့ ဖတ်ကဖောင်ခေါ်ပါတယ်။ မိမိကြိုက်နှစ်သက်ရာအသားများနှင့်ကြော်နိူင်ပါတယ်။",
+            "buttons": [{
+                "type": "postback",
+                "title": "View ingredients",
+                "payload": "ch-three-ingre"
+              },
+              {
+                "type": "postback",
+                "title": "How to cook?",
+                "payload": "ch-three-how-to"
+              },
+
+              {
+                "type": "web_url",
+                "url": "https://new-hope-a1a0b.web.app/meals/z0kDctcITKzw6z9vY79C?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%95%E1%80%84%E1%80%BA%E1%80%85%E1%80%AD%E1%80%99%E1%80%BA%E1%80%B8%E1%80%A1%E1%80%85%E1%80%95%E1%80%BA%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
+                "title": "Shop Now",
+                "webview_height_ratio": "full",
+                "messenger_extensions": true,
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
   callSend(sender_psid, response);
 }
 
