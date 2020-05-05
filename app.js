@@ -134,6 +134,9 @@ const handleMessage = (sender_psid, received_message) => {
     case "!admin":
       admin(sender_psid);
       break;
+    case "meals":
+      meals(sender_psid);
+      break;
     default:
       defaultReply(sender_psid);
   }
@@ -1770,7 +1773,7 @@ const meals = (sender_psid) => {
         obj.buttons = [{
           "type": "web_url",
           "title": "BOOK NOW",
-          "url": "https://newhope-grocery-store.herokuapp.com/booktour/" + obj.title + "/" + sender_psid,
+          "url": "https://www.google.com"
         }];
 
         elementItems.push(obj);
@@ -2042,8 +2045,8 @@ FUNCTION TO ADD WHITELIST DOMAIN
 const whitelistDomains = (res) => {
   var messageData = {
     "whitelisted_domains": [
-      "https://newhope-grocery-store.herokuapp.com",
-      "https://herokuapp.com"
+      "https://new-hope-a1a0b.web.app",
+      "https://firebase.google.com"
     ]
   };
   request({
