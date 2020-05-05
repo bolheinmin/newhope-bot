@@ -11,9 +11,6 @@ const
   express = require('express'),
   body_parser = require('body-parser'),
   firebase = require("firebase-admin"),
-  ejs = require("ejs"),
-  fs = require('fs'),
-  multer = require('multer'),
   app = express();
 
 // parse application/x-www-form-urlencoded
@@ -27,8 +24,7 @@ var firebaseConfig = {
     "client_email": process.env.FIREBASE_CLIENT_EMAIL,
     "project_id": process.env.FIREBASE_PROJECT_ID,
   }),
-  databaseURL: process.env.FIREBASE_DB_URL,
-  storageBucket: process.env.FIREBASE_SB_URL
+  databaseURL: process.env.FIREBASE_DB_URL
 };
 
 
@@ -36,7 +32,6 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 let db = firebase.firestore();
-let bucket = firebase.storage().bucket();
 
 
 
@@ -227,8 +222,6 @@ const handleMessage = (sender_psid, received_message) => {
   }
 }
 
-
-
 const selectMode = (sender_psid) => {
   let response1 = {
     "text": "Do you want to see our tour packages?, (type 'tour packages')"
@@ -258,15 +251,11 @@ const meals = (sender_psid) => {
     .then((snapshot) => {
       let elementItems = [];
 
-
-
       snapshot.forEach((doc) => {
-
 
         var obj = {};
         //obj._id  = doc.id ;        
         obj.title = doc.data().name;
-
 
         obj.image_url = doc.data().imageUrl;
         obj.buttons = [{
@@ -302,30 +291,30 @@ const meals = (sender_psid) => {
 
 }
 
-function adminCreatePackage(sender_psid) {
-  let response;
-  response = {
-    "attachment": {
-      "type": "template",
-      "payload": {
-        "template_type": "generic",
-        "elements": [{
-          "title": "Create a tour package",
-          "buttons": [{
-              "type": "web_url",
-              "title": "create",
-              "url": "https://newhope-grocery-store.herokuapp.com/addpackage/" + sender_psid,
-              "webview_height_ratio": "full",
-              "messenger_extensions": true,
-            },
+// function adminCreatePackage(sender_psid) {
+//   let response;
+//   response = {
+//     "attachment": {
+//       "type": "template",
+//       "payload": {
+//         "template_type": "generic",
+//         "elements": [{
+//           "title": "Create a tour package",
+//           "buttons": [{
+//               "type": "web_url",
+//               "title": "create",
+//               "url": "https://newhope-grocery-store.herokuapp.com/addpackage/" + sender_psid,
+//               "webview_height_ratio": "full",
+//               "messenger_extensions": true,
+//             },
 
-          ],
-        }]
-      }
-    }
-  }
-  callSendAPI(sender_psid, response);
-}
+//           ],
+//         }]
+//       }
+//     }
+//   }
+//   callSendAPI(sender_psid, response);
+// }
 
 
 function privateTour(sender_psid) {
