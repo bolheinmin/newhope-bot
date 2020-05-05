@@ -273,11 +273,17 @@ const handlePostback = (sender_psid, received_postback) => {
     case "sf-two-ingre":
       sfTwoIngre(sender_psid);
       break;
+    case "sf-three-ingre":
+      sfThreeIngre(sender_psid);
+      break;
     case "sf-one-how-to":
       sfOneHowTo(sender_psid);
       break;
     case "sf-two-how-to":
       sfTwoHowTo(sender_psid);
+      break;
+    case "sf-three-how-to":
+      sfThreeHowTo(sender_psid);
       break;
     default:
       defaultReply(sender_psid);
@@ -1930,36 +1936,56 @@ const setupGetStartedButton = (res) => {
 /**********************************
 FUNCTION TO SET UP PERSISTENT MENU
 ***********************************/
-
 const setupPersistentMenu = (res) => {
   var messageData = {
     "persistent_menu": [{
         "locale": "default",
         "composer_input_disabled": false,
         "call_to_actions": [{
-            "type": "postback",
-            "title": "View My Tasks",
-            "payload": "view-tasks"
+            "title": "Menu",
+            "type": "nested",
+            "call_to_actions": [{
+                "title": "My orders",
+                "type": "postback",
+                "payload": "my-orders"
+              },
+              {
+                "title": "Search a meal",
+                "type": "postback",
+                "payload": "search-meals"
+              },
+              {
+                "title": "Myanmar (Zawgyi)",
+                "type": "postback",
+                "payload": "mm-zawgyi"
+              },
+              {
+                "title": "Myanmar (Unicode)",
+                "type": "postback",
+                "payload": "mm-unicode"
+              },
+              {
+                "title": "English",
+                "type": "postback",
+                "payload": "eng"
+              },
+            ]
           },
           {
-            "type": "postback",
-            "title": "Add New Task",
-            "payload": "add-task"
-          },
-          {
-            "type": "postback",
-            "title": "Cancel",
-            "payload": "cancel"
+            "type": "web_url",
+            "title": "Visit website",
+            "url": "http://www.google.com",
+            "webview_height_ratio": "full"
           }
         ]
       },
       {
-        "locale": "default",
+        "locale": "zh_CN",
         "composer_input_disabled": false
       }
     ]
   };
-
+  // Start the request
   request({
       url: 'https://graph.facebook.com/v2.6/me/messenger_profile?access_token=' + PAGE_ACCESS_TOKEN,
       method: 'POST',
@@ -1970,8 +1996,11 @@ const setupPersistentMenu = (res) => {
     },
     function (error, response, body) {
       if (!error && response.statusCode == 200) {
+        // Print out the response body
         res.send(body);
+
       } else {
+        // TODO: Handle errors
         res.send(body);
       }
     });
