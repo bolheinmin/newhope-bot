@@ -299,6 +299,28 @@ const handlePostback = (sender_psid, received_postback) => {
   }
 }
 
+// response = {
+//   "attachment": {
+//     "type": "template",
+//     "payload": {
+//       "template_type": "generic",
+//       "elements": [{
+//         "title": "Create a tour package",
+//         "buttons": [{
+//             "type": "web_url",
+//             "title": "create",
+//             "url": "https://newhope-grocery-store.herokuapp.com/addpackage/" + sender_psid,
+//             "webview_height_ratio": "full",
+//             "messenger_extensions": true,
+//           },
+
+//         ],
+//       }]
+//     }
+//   }
+// }
+// callSendAPI(sender_psid, response);
+
 /* FUNCTION TO ADMIN */
 const admin = (sender_psid) => {
   let response;
@@ -308,29 +330,36 @@ const admin = (sender_psid) => {
       "payload": {
         "template_type": "generic",
         "elements": [{
-          "title": "Welcome!",
-          "image_url": "https://i.imgur.com/1BiVvOE.png",
-          "subtitle": "We have the right hat for everyone.",
-          "buttons": [{
+            "title": "View Orders",
+            "buttons": [{
               "type": "web_url",
-              "title": "View Orders",
-              "url": "https://new-hope-ecommerce.herokuapp.com/admin/orders",
-
-            },
-            {
+              "title": "view",
+              "url": "https://new-hope-a1a0b.web.app/meals/GQ7axgM5GebOVpP7bGfc?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%81%E1%80%BB%E1%80%A5%E1%80%BA%E1%80%85%E1%80%B1%E1%80%AC%E1%80%BA%E1%80%81%E1%80%AB%E1%80%B8%E1%80%9E%E1%80%AE%E1%80%B8%E1%80%9E%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%86%E1%80%99%E1%80%BA%E1%80%B8",
+              "webview_height_ratio": "full",
+              "messenger_extensions": true,
+            }]
+          },
+          {
+            "title": "Manage Meals",
+            "buttons": [{
               "type": "web_url",
-              "title": "Manage Meals",
-              "url": "https://new-hope-ecommerce.herokuapp.com/admin/meals",
-
-            },
-            {
+              "title": "manage",
+              "url": "https://new-hope-a1a0b.web.app/meals/GQ7axgM5GebOVpP7bGfc?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%81%E1%80%BB%E1%80%A5%E1%80%BA%E1%80%85%E1%80%B1%E1%80%AC%E1%80%BA%E1%80%81%E1%80%AB%E1%80%B8%E1%80%9E%E1%80%AE%E1%80%B8%E1%80%9E%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%86%E1%80%99%E1%80%BA%E1%80%B8",
+              "webview_height_ratio": "full",
+              "messenger_extensions": true,
+            }]
+          },
+          {
+            "title": "Manage Ingredients",
+            "buttons": [{
               "type": "web_url",
-              "title": "Manage Ingredients",
-              "url": "https://new-hope-ecommerce.herokuapp.com/admin/ingredients",
-
-            },
-          ]
-        }]
+              "title": "create",
+              "url": "https://new-hope-a1a0b.web.app/meals/GQ7axgM5GebOVpP7bGfc?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%81%E1%80%BB%E1%80%A5%E1%80%BA%E1%80%85%E1%80%B1%E1%80%AC%E1%80%BA%E1%80%81%E1%80%AB%E1%80%B8%E1%80%9E%E1%80%AE%E1%80%B8%E1%80%9E%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%86%E1%80%99%E1%80%BA%E1%80%B8",
+              "webview_height_ratio": "full",
+              "messenger_extensions": true,
+            }]
+          }
+        ]
       }
     }
   }
@@ -651,7 +680,7 @@ const chicken = (sender_psid) => {
           },
           {
             "title": "ကြက်​သားနှင့်ပိန္နဲသီးဆီပြန်",
-            "image_url": "https://petersfancybrownhats.com/company_image.png",
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/new-hope-a1a0b.appspot.com/o/%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%2F%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E2%80%8B%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%94%E1%80%BE%E1%80%84%E1%80%BA%E1%80%B7%E1%80%95%E1%80%AD%E1%80%94%E1%80%B9%E1%80%94%E1%80%B2%E1%80%9E%E1%80%AE%E1%80%B8%E1%80%86%E1%80%AE%E1%80%95%E1%80%BC%E1%80%94%E1%80%BA_1588687923541?alt=media&token=6812cf7b-1eec-478b-9186-7c79a1284e7d",
             "subtitle": "ဒီတစ်ခါ နွေရာသီပူပူမှာခံတွင်းလိုက်စေမယ့်ဟင်းလေးတစ်မယ်ဖော်ပြပေးလိုက်ပါတယ်။",
             "buttons": [{
                 "type": "postback",
@@ -675,7 +704,7 @@ const chicken = (sender_psid) => {
           },
           {
             "title": "ရှမ်းအရည်ဖျော်",
-            "image_url": "https://petersfancybrownhats.com/company_image.png",
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/new-hope-a1a0b.appspot.com/o/%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%2F%E1%80%9B%E1%80%BE%E1%80%99%E1%80%BA%E1%80%B8%E1%80%A1%E1%80%9B%E1%80%8A%E1%80%BA%E1%80%96%E1%80%BB%E1%80%B1%E1%80%AC%E1%80%BA_1588689784432?alt=media&token=0c999717-a328-4d02-98b9-8ec0ee3b828d",
             "subtitle": "ရေစိမ်ခေါက်ဆွဲ(ဆန်ဖွယ်)သို့မဟုတ် ဆန်စီးနဲ့လုပ်စားနိူင်ပါတယ်။",
             "buttons": [{
                 "type": "postback",
@@ -1076,7 +1105,7 @@ const pork = (sender_psid) => {
           },
           {
             "title": "သုံးထပ်သားနှင့်ဘဲဥအချိုချက်",
-            "image_url": "https://petersfancybrownhats.com/company_image.png",
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/new-hope-a1a0b.appspot.com/o/%E1%80%9D%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%2F%E1%80%9E%E1%80%AF%E1%80%B6%E1%80%B8%E1%80%91%E1%80%95%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%94%E1%80%BE%E1%80%84%E1%80%BA%E1%80%B7%E1%80%98%E1%80%B2%E1%80%A5%E1%80%A1%E1%80%81%E1%80%BB%E1%80%AD%E1%80%AF%E1%80%81%E1%80%BB%E1%80%80%E1%80%BA_1588691174632?alt=media&token=cc22b6bd-5222-4341-a7e4-f57f0ff3cedf",
             "subtitle": "ဒီတစ်ခါ နွေရာသီပူပူမှာခံတွင်းလိုက်စေမယ့်ဟင်းလေးတစ်မယ်ဖော်ပြပေးလိုက်ပါတယ်။",
             "buttons": [{
                 "type": "postback",
@@ -1098,7 +1127,7 @@ const pork = (sender_psid) => {
           },
           {
             "title": "ဝက်နံရိုးနုကြော်",
-            "image_url": "https://petersfancybrownhats.com/company_image.png",
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/new-hope-a1a0b.appspot.com/o/%E1%80%9D%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%2F%E1%80%9D%E1%80%80%E1%80%BA%E1%80%94%E1%80%B6%E1%80%9B%E1%80%AD%E1%80%AF%E1%80%B8%E1%80%94%E1%80%AF%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA_1588690461101?alt=media&token=663af3c1-bc78-4a16-807b-e76af0c316d2",
             "subtitle": "ဒီတစ်ခါလွယ်ကူရိုးရှင်းပြီးအမြန်ချက်လို့ရတဲ့ဟင်းချက်နည်းလေးတစ်ခုဝေမျှပါ့မယ်။",
             "buttons": [{
                 "type": "postback",
@@ -1476,7 +1505,7 @@ const fish = (sender_psid) => {
           },
           {
             "title": "မြန်မာစတိုင်လ်ငါးရံ့သောက်ဆမ်း",
-            "image_url": "https://firebasestorage.googleapis.com/v0/b/new-hope-a1a0b.appspot.com/o/chicken%2Fchicken%20soup_1587378249871?alt=media&token=af1d6f12-536e-4d0d-9a1b-8b2074d975f3",
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/new-hope-a1a0b.appspot.com/o/%E1%80%84%E1%80%AB%E1%80%B8%2F%E1%80%99%E1%80%BC%E1%80%94%E1%80%BA%E1%80%99%E1%80%AC%E1%80%85%E1%80%90%E1%80%AD%E1%80%AF%E1%80%84%E1%80%BA%E1%80%9C%E1%80%BA%E1%80%84%E1%80%AB%E1%80%B8%E1%80%9B%E1%80%B6%E1%80%B7%E1%80%9E%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%86%E1%80%99%E1%80%BA%E1%80%B8_1588688831421?alt=media&token=754bc28e-0e2f-4799-95c2-280cf7b9a312",
             "subtitle": "ငါးပိထောင်းက နူးညံ့အိစက်နေတဲ့အတွက်သရက်သီးစိမ်းလေးနဲ့တို့မလား၊ သခွားသီးလေးနဲ့ကော်ပြီးတို့မလား၊ ထမင်းနဲ့ ဇွိကနဲနယ်စားမလား၊ စားချင်ရာနဲ့သာစားပါ။",
             "buttons": [{
                 "type": "postback",
@@ -1772,7 +1801,7 @@ const seafood = (sender_psid) => {
           },
           {
             "title": "ပုစွန်နှင့်ပန်းဂေါ်ဖီးစိမ်းကြော်",
-            "image_url": "https://petersfancybrownhats.com/company_image.png",
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/new-hope-a1a0b.appspot.com/o/%E1%80%95%E1%80%84%E1%80%BA%E1%80%9C%E1%80%9A%E1%80%BA%E1%80%85%E1%80%AC%2F%E1%80%95%E1%80%AF%E1%80%85%E1%80%BD%E1%80%94%E1%80%BA%E1%80%94%E1%80%BE%E1%80%84%E1%80%BA%E1%80%B7%E1%80%95%E1%80%94%E1%80%BA%E1%80%B8%E1%80%82%E1%80%B1%E1%80%AB%E1%80%BA%E1%80%96%E1%80%AE%E1%80%B8%E1%80%85%E1%80%AD%E1%80%99%E1%80%BA%E1%80%B8%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA_1588688443814?alt=media&token=cab10073-1182-4e22-a1bc-0c58469de5c9",
             "subtitle": "ဒီတစ်ပါတ်မှာတော့ အရွယ်သုံးပါးနှစ်သက်စေမယ့်ရိုးရှင်းတဲ့ဟင်းလျာလေးတစ်မယ်ဖော်ပြပေးလိုက်ပါတယ်။",
             "buttons": [{
                 "type": "postback",
@@ -2021,31 +2050,6 @@ const meals = (sender_psid) => {
     });
 
 }
-
-// function adminCreatePackage(sender_psid) {
-//   let response;
-//   response = {
-//     "attachment": {
-//       "type": "template",
-//       "payload": {
-//         "template_type": "generic",
-//         "elements": [{
-//           "title": "Create a tour package",
-//           "buttons": [{
-//               "type": "web_url",
-//               "title": "create",
-//               "url": "https://newhope-grocery-store.herokuapp.com/addpackage/" + sender_psid,
-//               "webview_height_ratio": "full",
-//               "messenger_extensions": true,
-//             },
-
-//           ],
-//         }]
-//       }
-//     }
-//   }
-//   callSendAPI(sender_psid, response);
-// }
 
 
 const defaultReply = (sender_psid) => {
