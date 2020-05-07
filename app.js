@@ -334,7 +334,7 @@ const admin = (sender_psid) => {
             "buttons": [{
               "type": "web_url",
               "title": "view",
-              "url": "https://new-hope-a1a0b.web.app/meals/GQ7axgM5GebOVpP7bGfc?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%81%E1%80%BB%E1%80%A5%E1%80%BA%E1%80%85%E1%80%B1%E1%80%AC%E1%80%BA%E1%80%81%E1%80%AB%E1%80%B8%E1%80%9E%E1%80%AE%E1%80%B8%E1%80%9E%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%86%E1%80%99%E1%80%BA%E1%80%B8",
+              "url": "https://new-hope-a1a0b.web.app/admin/orders",
               "webview_height_ratio": "full",
               "messenger_extensions": true,
             }]
@@ -344,7 +344,7 @@ const admin = (sender_psid) => {
             "buttons": [{
               "type": "web_url",
               "title": "manage",
-              "url": "https://new-hope-a1a0b.web.app/meals/GQ7axgM5GebOVpP7bGfc?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%81%E1%80%BB%E1%80%A5%E1%80%BA%E1%80%85%E1%80%B1%E1%80%AC%E1%80%BA%E1%80%81%E1%80%AB%E1%80%B8%E1%80%9E%E1%80%AE%E1%80%B8%E1%80%9E%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%86%E1%80%99%E1%80%BA%E1%80%B8",
+              "url": "https://new-hope-a1a0b.web.app/admin/meals",
               "webview_height_ratio": "full",
               "messenger_extensions": true,
             }]
@@ -354,7 +354,7 @@ const admin = (sender_psid) => {
             "buttons": [{
               "type": "web_url",
               "title": "create",
-              "url": "https://new-hope-a1a0b.web.app/meals/GQ7axgM5GebOVpP7bGfc?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%81%E1%80%BB%E1%80%A5%E1%80%BA%E1%80%85%E1%80%B1%E1%80%AC%E1%80%BA%E1%80%81%E1%80%AB%E1%80%B8%E1%80%9E%E1%80%AE%E1%80%B8%E1%80%9E%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%86%E1%80%99%E1%80%BA%E1%80%B8",
+              "url": "https://new-hope-a1a0b.web.app/admin/ingredients",
               "webview_height_ratio": "full",
               "messenger_extensions": true,
             }]
@@ -2173,9 +2173,11 @@ const setupPersistentMenu = (res) => {
             "title": "Menu",
             "type": "nested",
             "call_to_actions": [{
-                "title": "My orders",
-                "type": "postback",
-                "payload": "my-orders"
+              "type": "web_url",
+              "title": "My Orders",
+              "url": "https://new-hope-a1a0b.web.app/my/orders",
+              "webview_height_ratio": "full",
+              "messenger_extensions": true,
               },
               {
                 "title": "Search a meal",
