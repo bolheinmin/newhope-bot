@@ -134,12 +134,25 @@ const handleMessage = (sender_psid, received_message) => {
     case "!admin":
       admin(sender_psid);
       break;
+    case "chicken":
+      chicken(sender_psid);
+      break;
+    case "pork":
+      pork(sender_psid);
+      break;
+    case "fish":
+      fish(sender_psid);
+      break;
+    case "beef":
+      beef(sender_psid);
+      break;
+    case "seafood":
+      seafood(sender_psid);
+      break;
     default:
       defaultReply(sender_psid);
   }
 }
-
-
 
 /*********************************************
 Function to handle when user click button
@@ -153,6 +166,9 @@ const handlePostback = (sender_psid, received_postback) => {
       break;
     case "mm-lan":
       greetUser(sender_psid);
+      break;
+    case "chat-with-admin":
+      chatWithAdmin(sender_psid);
       break;
     case "search-meals":
       searchMeals(sender_psid);
@@ -297,6 +313,104 @@ function handleQuickReply(sender_psid, received_message) {
       defaultReply(sender_psid);
   }
 
+}
+
+/* FUNCTION TO GETSTARTED */
+async function getStarted(sender_psid) {
+  let user = await getUserProfile(sender_psid);
+  let response = {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "button",
+        "text": "Hi " + user.first_name + " " + user.last_name + ". Welcome to Newhope Grocery Store.\n\n🇲🇲 မိမိနှစ်သက်ရာဘာသာစကားကိုရွေးပါ။\n\n🇺🇸 Please choose the language below.",
+        "buttons": [{
+            "type": "postback",
+            "title": "မြန်မာ",
+            "payload": "mm-lan"
+          },
+          {
+            "type": "postback",
+            "title": "English",
+            "payload": "eng-lan"
+          }
+        ]
+      }
+    }
+  }
+  callSend(sender_psid, response);
+}
+
+/*FUNCTION TO GREET USER*/
+async function greetUser(sender_psid) {
+  let response1 = {
+    "text": "မင်္ဂလာပါခင်ဗျ\nNew Hope Grocery Store မှ ကြိုဆိုပါတယ်ခင်ဗျ 🙂 "
+  };
+  let response2 = {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "button",
+        "text": "New Hope မှာရှိတဲ့ ဟင်းပွဲတွေရဲ့ပါဝင်ပစ္စည်းများဝယ်ဖို့ “ဝယ်မယ်” ဆိုတဲ့ Button ကိုနှိပ်ပြီး ဝယ်ယူနိုင်ပါတယ်ခင်ဗျ 😉",
+        "buttons": [{
+            "type": "postback",
+            "title": "Admin နဲ့ Chat မယ်",
+            "payload": "chat-with-admin"
+          },
+          {
+            "type": "postback",
+            "title": "ဟင်းပွဲရှာမယ်",
+            "payload": "search-meals"
+          },
+          {
+            "type": "web_url",
+            "title": "ဝယ်မယ်",
+            "url": "https://new-hope-a1a0b.web.app",
+            "webview_height_ratio": "full",
+            "messenger_extensions": true,
+          }
+        ]
+      }
+    }
+  };
+  callSend(sender_psid, response1).then(() => {
+    return callSend(sender_psid, response2);
+  });
+}
+
+const chatWithAdmin = (sender_psid) => {
+  let response;
+  response = {
+    "text": "အမှာစကားချန်ထားပေးခဲ့ပါ။\n၂၄နာရီအတွင်းပြန်လည်ဖြေကြားပေးပါမယ်ခင်ဗျ 😉"
+  }
+  callSend(sender_psid, response);
+}
+
+const defaultReply = (sender_psid) => {
+  let response1 = {
+    "text": "ကြက်သားဟင်းပွဲများရှာဖွေရန်အတွက် 'chicken' ဟုရိုက်ပါ။"
+  };
+  let response2 = {
+    "text": "ဝက်သားဟင်းပွဲများရှာဖွေရန်အတွက် 'pork' ဟုရိုက်ပါ။"
+  };
+  let response3 = {
+    "text": "ငါးဟင်းပွဲများရှာဖွေရန်အတွက် 'fish' ဟုရိုက်ပါ။"
+  };
+  let response4 = {
+    "text": "အမဲသားဟင်းပွဲများရှာဖွေရန်အတွက် 'beef' ဟုရိုက်ပါ။"
+  };
+  let response5 = {
+    "text": "ပင်လယ်စာဟင်းပွဲများရှာဖွေရန်အတွက် 'seafood' ဟုရိုက်ပါ။"
+  };
+  callSend(sender_psid, response1).then(() => {
+    return callSend(sender_psid, response2).then(() => {
+      return callSend(sender_psid, response3).then(() => {
+        return callSend(sender_psid, response4).then(() => {
+          return callSend(sender_psid, response5);
+        });
+      });
+    });
+  });
 }
 
 /* FUNCTION TO ADMIN */
@@ -520,31 +634,31 @@ const searchByCategory = (sender_psid) => {
     "quick_replies": [{
         "content_type": "text",
         "title": "ကြက်သား",
-        "image_url":"https://i.imgur.com/SJTX4bn.png",
+        "image_url": "https://i.imgur.com/SJTX4bn.png",
         "payload": "chicken"
       },
       {
         "content_type": "text",
         "title": "ဝက်သား",
-        "image_url":"https://i.imgur.com/0Dc8Ds1.png",
+        "image_url": "https://i.imgur.com/0Dc8Ds1.png",
         "payload": "pork"
       },
       {
         "content_type": "text",
         "title": "ငါး",
-        "image_url":"https://i.imgur.com/GftmobA.png",
+        "image_url": "https://i.imgur.com/GftmobA.png",
         "payload": "fish"
       },
       {
         "content_type": "text",
         "title": "အမဲသား",
-        "image_url":"https://i.imgur.com/bNBbE18.png",
+        "image_url": "https://i.imgur.com/bNBbE18.png",
         "payload": "beef"
       },
       {
         "content_type": "text",
         "title": "ပင်လယ်စာ",
-        "image_url":"https://i.imgur.com/mdTOS7j.png",
+        "image_url": "https://i.imgur.com/mdTOS7j.png",
         "payload": "sea-food"
       }
     ]
@@ -1674,25 +1788,25 @@ const beef = (sender_psid) => {
     "quick_replies": [{
         "content_type": "text",
         "title": "ကြက်သား",
-        "image_url":"https://i.imgur.com/SJTX4bn.png",
+        "image_url": "https://i.imgur.com/SJTX4bn.png",
         "payload": "chicken"
       },
       {
         "content_type": "text",
         "title": "ဝက်သား",
-        "image_url":"https://i.imgur.com/0Dc8Ds1.png",
+        "image_url": "https://i.imgur.com/0Dc8Ds1.png",
         "payload": "pork"
       },
       {
         "content_type": "text",
         "title": "ငါး",
-        "image_url":"https://i.imgur.com/GftmobA.png",
+        "image_url": "https://i.imgur.com/GftmobA.png",
         "payload": "fish"
       },
       {
         "content_type": "text",
         "title": "ပင်လယ်စာ",
-        "image_url":"https://i.imgur.com/mdTOS7j.png",
+        "image_url": "https://i.imgur.com/mdTOS7j.png",
         "payload": "sea-food"
       }
     ]
@@ -2010,28 +2124,6 @@ const sfThreeHowTo = (sender_psid) => {
 // }
 
 
-const defaultReply = (sender_psid) => {
-  let response1 = {
-    "text": "To test text reply, type 'text'"
-  };
-  let response2 = {
-    "text": "To test quick reply, type 'quick'"
-  };
-  let response3 = {
-    "text": "To test button reply, type 'button'"
-  };
-  let response4 = {
-    "text": "To test webview, type 'webview'"
-  };
-  callSend(sender_psid, response1).then(() => {
-    return callSend(sender_psid, response2).then(() => {
-      return callSend(sender_psid, response3).then(() => {
-        return callSend(sender_psid, response4);
-      });
-    });
-  });
-}
-
 const getUserProfile = (sender_psid) => {
   return new Promise(resolve => {
     request({
@@ -2048,68 +2140,6 @@ const getUserProfile = (sender_psid) => {
   });
 }
 
-/* FUNCTION TO GETSTARTED */
-async function getStarted(sender_psid) {
-  let user = await getUserProfile(sender_psid);
-  let response = {
-    "attachment": {
-      "type": "template",
-      "payload": {
-        "template_type": "button",
-        "text": "Hi " + user.first_name + " " + user.last_name + ". Welcome to Newhope Grocery Store.\n\n🇲🇲 မိမိနှစ်သက်ရာဘာသာစကားကိုရွေးပါ။\n\n🇺🇸 Please choose the language below.",
-        "buttons": [{
-            "type": "postback",
-            "title": "မြန်မာ",
-            "payload": "mm-lan"
-          },
-          {
-            "type": "postback",
-            "title": "English",
-            "payload": "eng-lan"
-          }
-        ]
-      }
-    }
-  }
-  callSend(sender_psid, response);
-}
-
-/*FUNCTION TO GREET USER*/
-async function greetUser(sender_psid) {
-  let response1 = {
-    "text": "မင်္ဂလာပါခင်ဗျ\nNew Hope Grocery Store မှ ကြိုဆိုပါတယ်ခင်ဗျ 🙂 "
-  };
-  let response2 = {
-    "attachment": {
-      "type": "template",
-      "payload": {
-        "template_type": "button",
-        "text": "New Hope မှာရှိတဲ့ ဟင်းပွဲတွေရဲ့ပါဝင်ပစ္စည်းများဝယ်ဖို့ “ဝယ်မယ်” ဆိုတဲ့ Button ကိုနှိပ်ပြီး ဝယ်ယူနိုင်ပါတယ်ခင်ဗျ 😉",
-        "buttons": [{
-            "type": "postback",
-            "title": "Admin နဲ့ Chat မယ်",
-            "payload": "chat-with-admin"
-          },
-          {
-            "type": "postback",
-            "title": "ဟင်းပွဲရှာမယ်",
-            "payload": "search-meals"
-          },
-          {
-            "type": "web_url",
-            "title": "ဝယ်မယ်",
-            "url": "https://new-hope-a1a0b.web.app",
-            "webview_height_ratio": "full",
-            "messenger_extensions": true,
-          }
-        ]
-      }
-    }
-  };
-  callSend(sender_psid, response1).then(() => {
-    return callSend(sender_psid, response2);
-  });
-}
 
 const callSendAPI = (sender_psid, response) => {
   let request_body = {
