@@ -140,34 +140,6 @@ const handleMessage = (sender_psid, received_message) => {
 }
 
 
-/****************************************************
-Function to Handle when user send quick reply message
-*****************************************************/
-
-function handleQuickReply(sender_psid, received_message) {
-
-  switch (received_message) {
-    case "chicken":
-      chicken(sender_psid);
-      break;
-    case "pork":
-      pork(sender_psid);
-      break;
-    case "fish":
-      fish(sender_psid);
-      break;
-    case "beef":
-      beef(sender_psid);
-      break;
-    case "sea-food":
-      seafood(sender_psid);
-      break;
-    default:
-      defaultReply(sender_psid);
-  }
-
-}
-
 
 /*********************************************
 Function to handle when user click button
@@ -299,6 +271,34 @@ const handlePostback = (sender_psid, received_postback) => {
   }
 }
 
+/****************************************************
+Function to Handle when user send quick reply message
+*****************************************************/
+
+function handleQuickReply(sender_psid, received_message) {
+
+  switch (received_message) {
+    case "chicken":
+      chicken(sender_psid);
+      break;
+    case "pork":
+      pork(sender_psid);
+      break;
+    case "fish":
+      fish(sender_psid);
+      break;
+    case "beef":
+      beef(sender_psid);
+      break;
+    case "sea-food":
+      seafood(sender_psid);
+      break;
+    default:
+      defaultReply(sender_psid);
+  }
+
+}
+
 /* FUNCTION TO GETSTARTED */
 async function getStarted(sender_psid) {
   let user = await getUserProfile(sender_psid);
@@ -307,7 +307,7 @@ async function getStarted(sender_psid) {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "Hi" + user.first_name + " " + user.last_name + ". Welcome to Newhope Grocery Store.\n\n🇺🇸 Please choose the language below.\n\n🇲🇲 မိမိနှစ်သက်ရာဘာသာစကားကိုရွေးပါ။",
+        "text": "မင်္ဂလာပါ " + user.first_name + " " + user.last_name + ". Welcome to Newhope Grocery Store.\n\n🇺🇸 Please choose the language below.\n\n🇲🇲 မိမိနှစ်သက်ရာဘာသာစကားကိုရွေးပါ။",
         "buttons": [{
             "type": "postback",
             "title": "English",
