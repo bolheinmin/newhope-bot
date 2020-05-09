@@ -360,7 +360,6 @@ const admin = (sender_psid) => {
   callSend(sender_psid, response);
 }
 
-
 /* FUNCTION TO SEARCH MEALS */
 const searchMeals = (sender_psid) => {
   let response;
@@ -644,7 +643,7 @@ const chicken = (sender_psid) => {
 
               {
                 "type": "web_url",
-                "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
+                "url": "https://new-hope-a1a0b.web.app/meals/S4pnlwEa2oJA99kSitah?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E2%80%8B%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%94%E1%80%BE%E1%80%84%E1%80%BA%E1%80%B7%E1%80%95%E1%80%AD%E1%80%94%E1%80%B9%E1%80%94%E1%80%B2%E1%80%9E%E1%80%AE%E1%80%B8%E1%80%86%E1%80%AE%E1%80%95%E1%80%BC%E1%80%94%E1%80%BA",
                 "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
@@ -668,7 +667,7 @@ const chicken = (sender_psid) => {
 
               {
                 "type": "web_url",
-                "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
+                "url": "https://new-hope-a1a0b.web.app/meals/SjkczL0pdSpmLz1vYwGo?meal=%E1%80%9B%E1%80%BE%E1%80%99%E1%80%BA%E1%80%B8%E1%80%A1%E1%80%9B%E1%80%8A%E1%80%BA%E1%80%96%E1%80%BB%E1%80%B1%E1%80%AC%E1%80%BA",
                 "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
@@ -880,7 +879,7 @@ const chFourIngre = (sender_psid) => {
           },
           {
             "type": "web_url",
-            "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
+            "url": "https://new-hope-a1a0b.web.app/meals/S4pnlwEa2oJA99kSitah?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E2%80%8B%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%94%E1%80%BE%E1%80%84%E1%80%BA%E1%80%B7%E1%80%95%E1%80%AD%E1%80%94%E1%80%B9%E1%80%94%E1%80%B2%E1%80%9E%E1%80%AE%E1%80%B8%E1%80%86%E1%80%AE%E1%80%95%E1%80%BC%E1%80%94%E1%80%BA",
             "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
@@ -906,7 +905,7 @@ const chFourHowTo = (sender_psid) => {
         "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို “ဝယ်မယ်” ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
-          "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
+          "url": "https://new-hope-a1a0b.web.app/meals/S4pnlwEa2oJA99kSitah?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E2%80%8B%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%94%E1%80%BE%E1%80%84%E1%80%BA%E1%80%B7%E1%80%95%E1%80%AD%E1%80%94%E1%80%B9%E1%80%94%E1%80%B2%E1%80%9E%E1%80%AE%E1%80%B8%E1%80%86%E1%80%AE%E1%80%95%E1%80%BC%E1%80%94%E1%80%BA",
           "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
@@ -939,7 +938,7 @@ const chFiveIngre = (sender_psid) => {
           },
           {
             "type": "web_url",
-            "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
+            "url": "https://new-hope-a1a0b.web.app/meals/SjkczL0pdSpmLz1vYwGo?meal=%E1%80%9B%E1%80%BE%E1%80%99%E1%80%BA%E1%80%B8%E1%80%A1%E1%80%9B%E1%80%8A%E1%80%BA%E1%80%96%E1%80%BB%E1%80%B1%E1%80%AC%E1%80%BA",
             "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
@@ -965,7 +964,7 @@ const chFiveHowTo = (sender_psid) => {
         "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို “ဝယ်မယ်” ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
-          "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
+          "url": "https://new-hope-a1a0b.web.app/meals/SjkczL0pdSpmLz1vYwGo?meal=%E1%80%9B%E1%80%BE%E1%80%99%E1%80%BA%E1%80%B8%E1%80%A1%E1%80%9B%E1%80%8A%E1%80%BA%E1%80%96%E1%80%BB%E1%80%B1%E1%80%AC%E1%80%BA",
           "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
@@ -1068,7 +1067,7 @@ const pork = (sender_psid) => {
               },
               {
                 "type": "web_url",
-                "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
+                "url": "https://new-hope-a1a0b.web.app/meals/ERWds6E6HhPBgzkwIKJV?meal=%E1%80%9E%E1%80%AF%E1%80%B6%E1%80%B8%E1%80%91%E1%80%95%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%94%E1%80%BE%E1%80%84%E1%80%BA%E1%80%B7%E1%80%98%E1%80%B2%E1%80%A5%E1%80%A1%E1%80%81%E1%80%BB%E1%80%AD%E1%80%AF%E1%80%81%E1%80%BB%E1%80%80%E1%80%BA",
                 "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
@@ -1090,7 +1089,7 @@ const pork = (sender_psid) => {
               },
               {
                 "type": "web_url",
-                "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
+                "url": "https://new-hope-a1a0b.web.app/meals/8ONOD4Bz5nA2TKWWiLC7?meal=%E1%80%9D%E1%80%80%E1%80%BA%E1%80%94%E1%80%B6%E1%80%9B%E1%80%AD%E1%80%AF%E1%80%B8%E1%80%94%E1%80%AF%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
                 "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
@@ -1301,7 +1300,7 @@ const porkFourIngre = (sender_psid) => {
           },
           {
             "type": "web_url",
-            "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
+            "url": "https://new-hope-a1a0b.web.app/meals/ERWds6E6HhPBgzkwIKJV?meal=%E1%80%9E%E1%80%AF%E1%80%B6%E1%80%B8%E1%80%91%E1%80%95%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%94%E1%80%BE%E1%80%84%E1%80%BA%E1%80%B7%E1%80%98%E1%80%B2%E1%80%A5%E1%80%A1%E1%80%81%E1%80%BB%E1%80%AD%E1%80%AF%E1%80%81%E1%80%BB%E1%80%80%E1%80%BA",
             "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
@@ -1327,7 +1326,7 @@ const porkFourHowTo = (sender_psid) => {
         "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို “ဝယ်မယ်” ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
-          "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
+          "url": "https://new-hope-a1a0b.web.app/meals/ERWds6E6HhPBgzkwIKJV?meal=%E1%80%9E%E1%80%AF%E1%80%B6%E1%80%B8%E1%80%91%E1%80%95%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%94%E1%80%BE%E1%80%84%E1%80%BA%E1%80%B7%E1%80%98%E1%80%B2%E1%80%A5%E1%80%A1%E1%80%81%E1%80%BB%E1%80%AD%E1%80%AF%E1%80%81%E1%80%BB%E1%80%80%E1%80%BA",
           "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
@@ -1360,7 +1359,7 @@ const porkFiveIngre = (sender_psid) => {
           },
           {
             "type": "web_url",
-            "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
+            "url": "https://new-hope-a1a0b.web.app/meals/8ONOD4Bz5nA2TKWWiLC7?meal=%E1%80%9D%E1%80%80%E1%80%BA%E1%80%94%E1%80%B6%E1%80%9B%E1%80%AD%E1%80%AF%E1%80%B8%E1%80%94%E1%80%AF%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
             "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
@@ -1386,7 +1385,7 @@ const porkFiveHowTo = (sender_psid) => {
         "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို “ဝယ်မယ်” ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
-          "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
+          "url": "https://new-hope-a1a0b.web.app/meals/8ONOD4Bz5nA2TKWWiLC7?meal=%E1%80%9D%E1%80%80%E1%80%BA%E1%80%94%E1%80%B6%E1%80%9B%E1%80%AD%E1%80%AF%E1%80%B8%E1%80%94%E1%80%AF%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
           "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
@@ -1469,7 +1468,7 @@ const fish = (sender_psid) => {
               },
               {
                 "type": "web_url",
-                "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
+                "url": "https://new-hope-a1a0b.web.app/meals/ezNlejeOhfNJDePtCk1V?meal=%E1%80%99%E1%80%BC%E1%80%94%E1%80%BA%E1%80%99%E1%80%AC%E1%80%85%E1%80%90%E1%80%AD%E1%80%AF%E1%80%84%E1%80%BA%E1%80%9C%E1%80%BA%E1%80%84%E1%80%AB%E1%80%B8%E1%80%9B%E1%80%B6%E1%80%B7%E1%80%9E%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%86%E1%80%99%E1%80%BA%E1%80%B8",
                 "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
@@ -1621,7 +1620,7 @@ const fishThreeIngre = (sender_psid) => {
           },
           {
             "type": "web_url",
-            "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
+            "url": "https://new-hope-a1a0b.web.app/meals/ezNlejeOhfNJDePtCk1V?meal=%E1%80%99%E1%80%BC%E1%80%94%E1%80%BA%E1%80%99%E1%80%AC%E1%80%85%E1%80%90%E1%80%AD%E1%80%AF%E1%80%84%E1%80%BA%E1%80%9C%E1%80%BA%E1%80%84%E1%80%AB%E1%80%B8%E1%80%9B%E1%80%B6%E1%80%B7%E1%80%9E%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%86%E1%80%99%E1%80%BA%E1%80%B8",
             "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
@@ -1647,7 +1646,7 @@ const fishThreeHowTo = (sender_psid) => {
         "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို “ဝယ်မယ်” ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
-          "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
+          "url": "https://new-hope-a1a0b.web.app/meals/ezNlejeOhfNJDePtCk1V?meal=%E1%80%99%E1%80%BC%E1%80%94%E1%80%BA%E1%80%99%E1%80%AC%E1%80%85%E1%80%90%E1%80%AD%E1%80%AF%E1%80%84%E1%80%BA%E1%80%9C%E1%80%BA%E1%80%84%E1%80%AB%E1%80%B8%E1%80%9B%E1%80%B6%E1%80%B7%E1%80%9E%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%86%E1%80%99%E1%80%BA%E1%80%B8",
           "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
@@ -1663,7 +1662,7 @@ const fishThreeHowTo = (sender_psid) => {
 /* FUNCTION TO BEEF */
 const beef = (sender_psid) => {
   let response1 = {
-    "text": "ဝမ်းနည်းပါတယ်ခင်ဗျ။ လူကြီးမင်းရှာသော Category Beef အတွက် Meal ရှာဖွေလို့မရပါ။"
+    "text": "ဝမ်းနည်းပါတယ်ခင်ဗျ။ လူကြီးမင်းရှာသော Category Beef အတွက် ဟင်းပွဲ ရှာဖွေလို့မရပါ။"
   };
   let response2 = {
     "text": "တခြား Categories တွေနဲ့ ရှာကြည့်ပါလား။",
@@ -1766,7 +1765,7 @@ const seafood = (sender_psid) => {
 
               {
                 "type": "web_url",
-                "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
+                "url": "https://new-hope-a1a0b.web.app/meals/3lE89G4NQd17alC3LisE?meal=%E1%80%95%E1%80%AF%E1%80%85%E1%80%BD%E1%80%94%E1%80%BA%E1%80%94%E1%80%BE%E1%80%84%E1%80%BA%E1%80%B7%E1%80%95%E1%80%94%E1%80%BA%E1%80%B8%E1%80%82%E1%80%B1%E1%80%AB%E1%80%BA%E1%80%96%E1%80%AE%E1%80%85%E1%80%AD%E1%80%99%E1%80%BA%E1%80%B8%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
                 "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
@@ -1898,9 +1897,9 @@ const sfTwoHowTo = (sender_psid) => {
   });
 }
 
-/************************
+/**************************
 Functions for Seafood three
-*************************/
+***************************/
 const sfThreeIngre = (sender_psid) => {
   let response1 = {
     "text": "ပုစွန်ခွာပြီး = ၁၀ သား \n\n ပန်းဂေါ်ဖီစိမ်း = ၁ခု \n\n ကြက်သွန်ဖြူ = ၃တက် \n\n ချင်းသေးသေး = ၁တက် \n\n ABC ပဲငံပြာရည်အကြည် \n\n ခရုဆီ \n\n ပြောင်းမှုန့်(သို့)ကော်မှုန့်"
@@ -1918,7 +1917,7 @@ const sfThreeIngre = (sender_psid) => {
           },
           {
             "type": "web_url",
-            "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
+            "url": "https://new-hope-a1a0b.web.app/meals/3lE89G4NQd17alC3LisE?meal=%E1%80%95%E1%80%AF%E1%80%85%E1%80%BD%E1%80%94%E1%80%BA%E1%80%94%E1%80%BE%E1%80%84%E1%80%BA%E1%80%B7%E1%80%95%E1%80%94%E1%80%BA%E1%80%B8%E1%80%82%E1%80%B1%E1%80%AB%E1%80%BA%E1%80%96%E1%80%AE%E1%80%85%E1%80%AD%E1%80%99%E1%80%BA%E1%80%B8%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
             "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
@@ -1944,7 +1943,7 @@ const sfThreeHowTo = (sender_psid) => {
         "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို “ဝယ်မယ်” ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
-          "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
+          "url": "https://new-hope-a1a0b.web.app/meals/3lE89G4NQd17alC3LisE?meal=%E1%80%95%E1%80%AF%E1%80%85%E1%80%BD%E1%80%94%E1%80%BA%E1%80%94%E1%80%BE%E1%80%84%E1%80%BA%E1%80%B7%E1%80%95%E1%80%94%E1%80%BA%E1%80%B8%E1%80%82%E1%80%B1%E1%80%AB%E1%80%BA%E1%80%96%E1%80%AE%E1%80%85%E1%80%AD%E1%80%99%E1%80%BA%E1%80%B8%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
           "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
@@ -2102,6 +2101,7 @@ async function greetUser(sender_psid) {
     return callSend(sender_psid, response2);
   });
 }
+
 const callSendAPI = (sender_psid, response) => {
   let request_body = {
     "recipient": {
