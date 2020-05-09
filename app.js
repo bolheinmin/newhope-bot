@@ -329,7 +329,7 @@ async function getStarted(sender_psid) {
 async function greetUser(sender_psid) {
   let user = await getUserProfile(sender_psid);
   let response1 = {
-    "text": "မင်္ဂလာပါခင်ဗျ\nNew Hope Grocery Store မှ ကြိုဆိုပါတယ်ခင်ဗျ 🙂 "
+    "text": "မင်္ဂလာပါ " + user.first_name + " " + user.last_name + "မင်္ဂလာပါခင်ဗျ\nNew Hope Grocery Store မှ ကြိုဆိုပါတယ်ခင်ဗျ 🙂 "
   };
   let response2 = {
     "attachment": {
