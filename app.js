@@ -519,27 +519,27 @@ const searchByCategory = (sender_psid) => {
     "text": "Categories တခုချင်းစီကို နှိပ်ပြီး ရှာလို့ရပါတယ်။",
     "quick_replies": [{
         "content_type": "text",
-        "title": "Chicken",
+        "title": "ကြက်သား",
         "payload": "chicken"
       },
       {
         "content_type": "text",
-        "title": "Pork",
+        "title": "ဝက်သား",
         "payload": "pork"
       },
       {
         "content_type": "text",
-        "title": "Fish",
+        "title": "ငါး",
         "payload": "fish"
       },
       {
         "content_type": "text",
-        "title": "Beef",
+        "title": "အမဲသား",
         "payload": "beef"
       },
       {
         "content_type": "text",
-        "title": "Sea Food",
+        "title": "ပင်လယ်စာ",
         "payload": "sea-food"
       }
     ]
@@ -1455,7 +1455,7 @@ const fish = (sender_psid) => {
           {
             "title": "မြန်မာစတိုင်လ်ငါးရံ့သောက်ဆမ်း",
             "image_url": "https://firebasestorage.googleapis.com/v0/b/new-hope-a1a0b.appspot.com/o/%E1%80%84%E1%80%AB%E1%80%B8%2F%E1%80%99%E1%80%BC%E1%80%94%E1%80%BA%E1%80%99%E1%80%AC%E1%80%85%E1%80%90%E1%80%AD%E1%80%AF%E1%80%84%E1%80%BA%E1%80%9C%E1%80%BA%E1%80%84%E1%80%AB%E1%80%B8%E1%80%9B%E1%80%B6%E1%80%B7%E1%80%9E%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%86%E1%80%99%E1%80%BA%E1%80%B8_1588688831421?alt=media&token=754bc28e-0e2f-4799-95c2-280cf7b9a312",
-            "subtitle": "ငါးပိထောင်းက နူးညံ့အိစက်နေတဲ့အတွက်သရက်သီးစိမ်းလေးနဲ့တို့မလား၊ သခွားသီးလေးနဲ့ကော်ပြီးတို့မလား၊ ထမင်းနဲ့ ဇွိကနဲနယ်စားမလား၊ စားချင်ရာနဲ့သာစားပါ။",
+            "subtitle": "ဒီတစ်ခါ နွေရာသီပူပူမှာခံတွင်းလိုက်စေမယ့်ဟင်းလေးတစ်မယ်ဖော်ပြပေးလိုက်ပါတယ်။",
             "buttons": [{
                 "type": "postback",
                 "title": "ပါဝင်ပစ္စည်းများ",
@@ -1662,28 +1662,28 @@ const fishThreeHowTo = (sender_psid) => {
 /* FUNCTION TO BEEF */
 const beef = (sender_psid) => {
   let response1 = {
-    "text": "ဝမ်းနည်းပါတယ်ခင်ဗျ။ လူကြီးမင်းရှာသော Category Beef အတွက် ဟင်းပွဲ ရှာဖွေလို့မရပါ။"
+    "text": "ဝမ်းနည်းပါတယ်ခင်ဗျ။ လူကြီးမင်းရှာသော Category “အမဲသား” အတွက် ဟင်းပွဲရှာဖွေလို့မရပါ။"
   };
   let response2 = {
     "text": "တခြား Categories တွေနဲ့ ရှာကြည့်ပါလား။",
     "quick_replies": [{
         "content_type": "text",
-        "title": "Chicken",
+        "title": "ကြက်သား",
         "payload": "chicken"
       },
       {
         "content_type": "text",
-        "title": "Pork",
+        "title": "ဝက်သား",
         "payload": "pork"
       },
       {
         "content_type": "text",
-        "title": "Fish",
+        "title": "ငါး",
         "payload": "fish"
       },
       {
         "content_type": "text",
-        "title": "Sea Food",
+        "title": "ပင်လယ်စာ",
         "payload": "sea-food"
       }
     ]
@@ -2200,9 +2200,10 @@ const setupPersistentMenu = (res) => {
           },
           {
             "type": "web_url",
-            "title": "Helps",
             "url": "https://new-hope-a1a0b.web.app/helps",
-            "webview_height_ratio": "full"
+            "title": "Helps",
+            "webview_height_ratio": "full",
+            "messenger_extensions": true,
           }
         ]
       },
