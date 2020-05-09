@@ -520,26 +520,31 @@ const searchByCategory = (sender_psid) => {
     "quick_replies": [{
         "content_type": "text",
         "title": "ကြက်သား",
+        "image_url":"https://i.imgur.com/SJTX4bn.png",
         "payload": "chicken"
       },
       {
         "content_type": "text",
         "title": "ဝက်သား",
+        "image_url":"https://i.imgur.com/0Dc8Ds1.png",
         "payload": "pork"
       },
       {
         "content_type": "text",
         "title": "ငါး",
+        "image_url":"https://i.imgur.com/GftmobA.png",
         "payload": "fish"
       },
       {
         "content_type": "text",
         "title": "အမဲသား",
+        "image_url":"https://i.imgur.com/bNBbE18.png",
         "payload": "beef"
       },
       {
         "content_type": "text",
         "title": "ပင်လယ်စာ",
+        "image_url":"https://i.imgur.com/mdTOS7j.png",
         "payload": "sea-food"
       }
     ]
@@ -1669,21 +1674,25 @@ const beef = (sender_psid) => {
     "quick_replies": [{
         "content_type": "text",
         "title": "ကြက်သား",
+        "image_url":"https://i.imgur.com/SJTX4bn.png",
         "payload": "chicken"
       },
       {
         "content_type": "text",
         "title": "ဝက်သား",
+        "image_url":"https://i.imgur.com/0Dc8Ds1.png",
         "payload": "pork"
       },
       {
         "content_type": "text",
         "title": "ငါး",
+        "image_url":"https://i.imgur.com/GftmobA.png",
         "payload": "fish"
       },
       {
         "content_type": "text",
         "title": "ပင်လယ်စာ",
+        "image_url":"https://i.imgur.com/mdTOS7j.png",
         "payload": "sea-food"
       }
     ]
