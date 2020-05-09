@@ -342,22 +342,38 @@ const admin = (sender_psid) => {
           {
             "title": "Manage Meals",
             "buttons": [{
-              "type": "web_url",
-              "title": "manage",
-              "url": "https://new-hope-a1a0b.web.app/admin/meals",
-              "webview_height_ratio": "full",
-              "messenger_extensions": true,
-            }]
+                "type": "web_url",
+                "title": "view",
+                "url": "https://new-hope-a1a0b.web.app/admin/meals",
+                "webview_height_ratio": "full",
+                "messenger_extensions": true,
+              },
+              {
+                "type": "web_url",
+                "title": "create",
+                "url": "https://new-hope-a1a0b.web.app/admin/meals/new",
+                "webview_height_ratio": "full",
+                "messenger_extensions": true,
+              }
+            ]
           },
           {
             "title": "Manage Ingredients",
             "buttons": [{
-              "type": "web_url",
-              "title": "create",
-              "url": "https://new-hope-a1a0b.web.app/admin/ingredients",
-              "webview_height_ratio": "full",
-              "messenger_extensions": true,
-            }]
+                "type": "web_url",
+                "title": "view",
+                "url": "https://new-hope-a1a0b.web.app/admin/ingredients",
+                "webview_height_ratio": "full",
+                "messenger_extensions": true,
+              },
+              {
+                "type": "web_url",
+                "title": "create",
+                "url": "https://new-hope-a1a0b.web.app/admin/ingredients/new",
+                "webview_height_ratio": "full",
+                "messenger_extensions": true,
+              }
+            ]
           }
         ]
       }
@@ -383,7 +399,7 @@ async function greetUser(sender_psid) {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
             "type": "postback",
             "title": "Admin နဲ့ Chat မယ်",
@@ -420,20 +436,20 @@ const searchMeals = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "“ကြက်သား ဝက်သား ငါး,…” စသည့်အကြောင်းအရာများအားဖြင့် ရှာဖွေနိုင်ပါတယ်။ \n\n ယနေ့အတွက် ဟင်းပွဲတွေအကြောင်းနှင့် လတ်တလော လူစိတ်ဝင်စားမှုများသောဟင်းပွဲများအကြောင်းသိချင်ပါသလား။ \n\n အောက်က Button လေးတွေကို နှိပ်ပြီး ရှာဖွေနိုင်ပါတယ်နော်။",
+        "text": "“ကြက်သား ဝက်သား ငါး,…” စသည့်အကြောင်းအရာများအားဖြင့် ရှာဖွေနိုင်ပါတယ်။ \n\n ယနေ့အတွက် ဟင်းပွဲတွေအကြောင်းနှင့် လတ်တလော လူစိတ်ဝင်စားမှုများသောဟင်းပွဲများအကြောင်းသိချင်ပါသလား။ \n\n အောက်က Button လေးတွေကို နှိပ်ပြီး ရှာဖွေနိုင်ပါတယ်။",
         "buttons": [{
             "type": "postback",
-            "title": "Today Meals",
+            "title": "ဒီနေ့အတွက်ဟင်းပွဲများ",
             "payload": "today-meals"
           },
           {
             "type": "postback",
-            "title": "Popular Meals",
+            "title": "ဟော့နေသည့်ဟင်းပွဲများ",
             "payload": "pop-meals"
           },
           {
             "type": "postback",
-            "title": "Search by category",
+            "title": "Category နဲ့ရှာမယ်",
             "payload": "search-by-category"
           }
         ]
@@ -456,19 +472,19 @@ const todayMeals = (sender_psid) => {
             "subtitle": "ဘယ်သူမဆိုဒီလိုပူအိုက်တဲ့ရာသီမှာအနှစ်ပါတဲ့ဟင်းတွေ၊ဆီပါတဲ့ဟင်းတွေကိုစားချင်ကြမှာမဟုတ်ဘူး။ဒီဟင်းပွဲလေးကတော့ ထမင်းဖြူလေးနဲ့နယ်ဖတ်စားရင်တောင်အရသာရှိမှာအမှန်ပါပဲ။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "ch-two-ingre"
               },
               {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "ch-two-how-to"
               },
 
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/meals/2L7hx52K7Fd4pTkgfvjC?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%A5%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA%E1%80%94%E1%80%BE%E1%80%95%E1%80%BA",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -480,17 +496,17 @@ const todayMeals = (sender_psid) => {
             "subtitle": "ဒီဟင်းပွဲအတွက်မည်သည့်အသားကိုမဆိုအသုံးပြုနိူင်ပါတယ်။ ကြက်၊ ဝက်၊ အမဲ၊ဆိတ်။ ကျွန်တော်က ဝက်လိုင်းသားလေးအသုံးပြုထားပါတယ်။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "pork-two-ingre"
               }, {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "pork-two-how-to"
               },
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/meals/fZllELy9hfhmjlU3UKUb?meal=%E1%80%80%E1%80%97%E1%80%BB%E1%80%AC%E1%80%9C%E1%80%BD%E1%80%90%E1%80%BA%E1%80%80%E1%80%AF%E1%80%94%E1%80%BA%E1%80%B8%E1%80%98%E1%80%B1%E1%80%AC%E1%80%84%E1%80%BA%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -516,18 +532,18 @@ const popMeals = (sender_psid) => {
             "subtitle": "ဒီတစ်ခါ နွေရာသီပူပူမှာခံတွင်းလိုက်စေမယ့်ဟင်းလေးတစ်မယ်ဖော်ပြပေးလိုက်ပါတယ်။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "sf-one-ingre"
               },
               {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "sf-one-how-to"
               },
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/meals/8U5AFaFTILZe5S5wv8HN?meal=%E1%80%80%E1%80%84%E1%80%BA%E1%80%B8%E1%80%99%E1%80%BD%E1%80%94%E1%80%BA%E1%80%A1%E1%80%81%E1%80%BB%E1%80%AD%E1%80%AF%E1%80%81%E1%80%BB%E1%80%80%E1%80%BA",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -539,19 +555,19 @@ const popMeals = (sender_psid) => {
             "subtitle": "ဆောင်းရာသီနဲ့လိုက်ဖက်တဲ့ဟင်းလေးတစ်ခွက်ချက်စားကြရအောင်။ ထိုင်းလိုတော့ ဖတ်ကဖောင်ခေါ်ပါတယ်။ မိမိကြိုက်နှစ်သက်ရာအသားများနှင့်ကြော်နိူင်ပါတယ်။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "ch-three-ingre"
               },
               {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "ch-three-how-to"
               },
 
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/meals/z0kDctcITKzw6z9vY79C?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%95%E1%80%84%E1%80%BA%E1%80%85%E1%80%AD%E1%80%99%E1%80%BA%E1%80%B8%E1%80%A1%E1%80%85%E1%80%95%E1%80%BA%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -613,18 +629,18 @@ const chicken = (sender_psid) => {
             "subtitle": "ဒီတစ်ခါ နွေရာသီပူပူမှာခံတွင်းလိုက်စေမယ့်ဟင်းလေးတစ်မယ်ဖော်ပြပေးလိုက်ပါတယ်။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "ch-one-ingre"
               },
               {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "ch-one-how-to"
               },
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/meals/GQ7axgM5GebOVpP7bGfc?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%81%E1%80%BB%E1%80%A5%E1%80%BA%E1%80%85%E1%80%B1%E1%80%AC%E1%80%BA%E1%80%81%E1%80%AB%E1%80%B8%E1%80%9E%E1%80%AE%E1%80%B8%E1%80%9E%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%86%E1%80%99%E1%80%BA%E1%80%B8",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -636,19 +652,19 @@ const chicken = (sender_psid) => {
             "subtitle": "ဘယ်သူမဆိုဒီလိုပူအိုက်တဲ့ရာသီမှာအနှစ်ပါတဲ့ဟင်းတွေ၊ဆီပါတဲ့ဟင်းတွေကိုစားချင်ကြမှာမဟုတ်ဘူး။ဒီဟင်းပွဲလေးကတော့ ထမင်းဖြူလေးနဲ့နယ်ဖတ်စားရင်တောင်အရသာရှိမှာအမှန်ပါပဲ။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "ch-two-ingre"
               },
               {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "ch-two-how-to"
               },
 
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/meals/2L7hx52K7Fd4pTkgfvjC?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%A5%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA%E1%80%94%E1%80%BE%E1%80%95%E1%80%BA",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -660,19 +676,19 @@ const chicken = (sender_psid) => {
             "subtitle": "ဆောင်းရာသီနဲ့လိုက်ဖက်တဲ့ဟင်းလေးတစ်ခွက်ချက်စားကြရအောင်။ ထိုင်းလိုတော့ ဖတ်ကဖောင်ခေါ်ပါတယ်။ မိမိကြိုက်နှစ်သက်ရာအသားများနှင့်ကြော်နိူင်ပါတယ်။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "ch-three-ingre"
               },
               {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "ch-three-how-to"
               },
 
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/meals/z0kDctcITKzw6z9vY79C?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%95%E1%80%84%E1%80%BA%E1%80%85%E1%80%AD%E1%80%99%E1%80%BA%E1%80%B8%E1%80%A1%E1%80%85%E1%80%95%E1%80%BA%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -684,19 +700,19 @@ const chicken = (sender_psid) => {
             "subtitle": "ဒီတစ်ခါ နွေရာသီပူပူမှာခံတွင်းလိုက်စေမယ့်ဟင်းလေးတစ်မယ်ဖော်ပြပေးလိုက်ပါတယ်။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "ch-four-ingre"
               },
               {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "ch-four-how-to"
               },
 
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -708,19 +724,19 @@ const chicken = (sender_psid) => {
             "subtitle": "ရေစိမ်ခေါက်ဆွဲ(ဆန်ဖွယ်)သို့မဟုတ် ဆန်စီးနဲ့လုပ်စားနိူင်ပါတယ်။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "ch-five-ingre"
               },
               {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "ch-five-how-to"
               },
 
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -732,6 +748,7 @@ const chicken = (sender_psid) => {
   }
   callSend(sender_psid, response);
 }
+
 
 /************************
 Functions for Chicken one
@@ -745,16 +762,16 @@ const chOneIngre = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
             "type": "postback",
-            "title": "How to cook",
+            "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
             "payload": "ch-one-how-to"
           },
           {
             "type": "web_url",
             "url": "https://new-hope-a1a0b.web.app/meals/GQ7axgM5GebOVpP7bGfc?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%81%E1%80%BB%E1%80%A5%E1%80%BA%E1%80%85%E1%80%B1%E1%80%AC%E1%80%BA%E1%80%81%E1%80%AB%E1%80%B8%E1%80%9E%E1%80%AE%E1%80%B8%E1%80%9E%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%86%E1%80%99%E1%80%BA%E1%80%B8",
-            "title": "Shop Now",
+            "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
           }
@@ -776,11 +793,11 @@ const chOneHowTo = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
           "url": "https://new-hope-a1a0b.web.app/meals/GQ7axgM5GebOVpP7bGfc?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%81%E1%80%BB%E1%80%A5%E1%80%BA%E1%80%85%E1%80%B1%E1%80%AC%E1%80%BA%E1%80%81%E1%80%AB%E1%80%B8%E1%80%9E%E1%80%AE%E1%80%B8%E1%80%9E%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%86%E1%80%99%E1%80%BA%E1%80%B8",
-          "title": "Shop Now",
+          "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
         }]
@@ -804,16 +821,16 @@ const chTwoIngre = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
             "type": "postback",
-            "title": "How to cook",
+            "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
             "payload": "ch-two-how-to"
           },
           {
             "type": "web_url",
             "url": "https://new-hope-a1a0b.web.app/meals/2L7hx52K7Fd4pTkgfvjC?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%A5%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA%E1%80%94%E1%80%BE%E1%80%95%E1%80%BA",
-            "title": "Shop Now",
+            "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
           }
@@ -835,11 +852,11 @@ const chTwoHowTo = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
           "url": "https://new-hope-a1a0b.web.app/meals/2L7hx52K7Fd4pTkgfvjC?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%A5%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA%E1%80%94%E1%80%BE%E1%80%95%E1%80%BA",
-          "title": "Shop Now",
+          "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
         }]
@@ -863,16 +880,16 @@ const chThreeIngre = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
             "type": "postback",
-            "title": "How to cook",
+            "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
             "payload": "ch-three-how-to"
           },
           {
             "type": "web_url",
             "url": "https://new-hope-a1a0b.web.app/meals/z0kDctcITKzw6z9vY79C?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%95%E1%80%84%E1%80%BA%E1%80%85%E1%80%AD%E1%80%99%E1%80%BA%E1%80%B8%E1%80%A1%E1%80%85%E1%80%95%E1%80%BA%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
-            "title": "Shop Now",
+            "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
           }
@@ -894,11 +911,11 @@ const chThreeHowTo = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
           "url": "https://new-hope-a1a0b.web.app/meals/z0kDctcITKzw6z9vY79C?meal=%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%95%E1%80%84%E1%80%BA%E1%80%85%E1%80%AD%E1%80%99%E1%80%BA%E1%80%B8%E1%80%A1%E1%80%85%E1%80%95%E1%80%BA%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
-          "title": "Shop Now",
+          "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
         }]
@@ -922,16 +939,16 @@ const chFourIngre = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
             "type": "postback",
-            "title": "How to cook",
+            "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
             "payload": "ch-four-how-to"
           },
           {
             "type": "web_url",
             "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
-            "title": "Shop Now",
+            "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
           }
@@ -953,11 +970,11 @@ const chFourHowTo = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
           "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
-          "title": "Shop Now",
+          "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
         }]
@@ -981,16 +998,16 @@ const chFiveIngre = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
             "type": "postback",
-            "title": "How to cook",
+            "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
             "payload": "ch-five-how-to"
           },
           {
             "type": "web_url",
             "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
-            "title": "Shop Now",
+            "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
           }
@@ -1012,11 +1029,11 @@ const chFiveHowTo = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
           "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
-          "title": "Shop Now",
+          "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
         }]
@@ -1042,18 +1059,18 @@ const pork = (sender_psid) => {
             "subtitle": "ဒီတစ်ခါ နွေရာသီပူပူမှာခံတွင်းလိုက်စေမယ့်ဟင်းလေးတစ်မယ်ဖော်ပြပေးလိုက်ပါတယ်။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "pork-one-ingre"
               },
               {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "pork-one-how-to"
               },
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/meals/7mJbQUg5bdQbZCtylXXK?meal=%E1%80%9E%E1%80%AF%E1%80%B6%E1%80%B8%E1%80%91%E1%80%95%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%A1%E1%80%81%E1%80%BB%E1%80%AD%E1%80%AF%E1%80%81%E1%80%BB%E1%80%80%E1%80%BA",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -1065,17 +1082,17 @@ const pork = (sender_psid) => {
             "subtitle": "ဒီဟင်းပွဲအတွက်မည်သည့်အသားကိုမဆိုအသုံးပြုနိူင်ပါတယ်။ ကြက်၊ ဝက်၊ အမဲ၊ဆိတ်။ ကျွန်တော်က ဝက်လိုင်းသားလေးအသုံးပြုထားပါတယ်။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "pork-two-ingre"
               }, {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "pork-two-how-to"
               },
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/meals/fZllELy9hfhmjlU3UKUb?meal=%E1%80%80%E1%80%97%E1%80%BB%E1%80%AC%E1%80%9C%E1%80%BD%E1%80%90%E1%80%BA%E1%80%80%E1%80%AF%E1%80%94%E1%80%BA%E1%80%B8%E1%80%98%E1%80%B1%E1%80%AC%E1%80%84%E1%80%BA%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -1087,17 +1104,17 @@ const pork = (sender_psid) => {
             "subtitle": "ဝက်သား၊ ကြက်သား မိမိနှစ်သက်ရာအသားကိုအသုံးပြုနိူင်ပါတယ်။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "pork-three-ingre"
               }, {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "pork-three-how-to"
               },
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/meals/uATPkaKbWia2XDiAlhWO?meal=%E1%80%9D%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%81%E1%80%BB%E1%80%A5%E1%80%BA%E1%80%85%E1%80%95%E1%80%BA",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -1109,17 +1126,17 @@ const pork = (sender_psid) => {
             "subtitle": "ဒီတစ်ခါ နွေရာသီပူပူမှာခံတွင်းလိုက်စေမယ့်ဟင်းလေးတစ်မယ်ဖော်ပြပေးလိုက်ပါတယ်။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "pork-four-ingre"
               }, {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "pork-four-how-to"
               },
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -1131,17 +1148,17 @@ const pork = (sender_psid) => {
             "subtitle": "ဒီတစ်ခါလွယ်ကူရိုးရှင်းပြီးအမြန်ချက်လို့ရတဲ့ဟင်းချက်နည်းလေးတစ်ခုဝေမျှပါ့မယ်။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "pork-five-ingre"
               }, {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "pork-five-how-to"
               },
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -1166,16 +1183,16 @@ const porkOneIngre = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
             "type": "postback",
-            "title": "How to cook",
+            "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
             "payload": "pork-one-how-to"
           },
           {
             "type": "web_url",
             "url": "https://new-hope-a1a0b.web.app/meals/7mJbQUg5bdQbZCtylXXK?meal=%E1%80%9E%E1%80%AF%E1%80%B6%E1%80%B8%E1%80%91%E1%80%95%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%A1%E1%80%81%E1%80%BB%E1%80%AD%E1%80%AF%E1%80%81%E1%80%BB%E1%80%80%E1%80%BA",
-            "title": "Shop Now",
+            "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
           }
@@ -1197,11 +1214,11 @@ const porkOneHowTo = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
           "url": "https://new-hope-a1a0b.web.app/meals/7mJbQUg5bdQbZCtylXXK?meal=%E1%80%9E%E1%80%AF%E1%80%B6%E1%80%B8%E1%80%91%E1%80%95%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%A1%E1%80%81%E1%80%BB%E1%80%AD%E1%80%AF%E1%80%81%E1%80%BB%E1%80%80%E1%80%BA",
-          "title": "Shop Now",
+          "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
         }]
@@ -1225,16 +1242,16 @@ const porkTwoIngre = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
             "type": "postback",
-            "title": "How to cook",
+            "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
             "payload": "pork-two-how-to"
           },
           {
             "type": "web_url",
             "url": "https://new-hope-a1a0b.web.app/meals/fZllELy9hfhmjlU3UKUb?meal=%E1%80%80%E1%80%97%E1%80%BB%E1%80%AC%E1%80%9C%E1%80%BD%E1%80%90%E1%80%BA%E1%80%80%E1%80%AF%E1%80%94%E1%80%BA%E1%80%B8%E1%80%98%E1%80%B1%E1%80%AC%E1%80%84%E1%80%BA%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
-            "title": "Shop Now",
+            "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
           }
@@ -1256,11 +1273,11 @@ const porkTwoHowTo = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
           "url": "https://new-hope-a1a0b.web.app/meals/fZllELy9hfhmjlU3UKUb?meal=%E1%80%80%E1%80%97%E1%80%BB%E1%80%AC%E1%80%9C%E1%80%BD%E1%80%90%E1%80%BA%E1%80%80%E1%80%AF%E1%80%94%E1%80%BA%E1%80%B8%E1%80%98%E1%80%B1%E1%80%AC%E1%80%84%E1%80%BA%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
-          "title": "Shop Now",
+          "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
         }]
@@ -1284,16 +1301,16 @@ const porkThreeIngre = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
             "type": "postback",
-            "title": "How to cook",
+            "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
             "payload": "pork-three-how-to"
           },
           {
             "type": "web_url",
             "url": "https://new-hope-a1a0b.web.app/meals/uATPkaKbWia2XDiAlhWO?meal=%E1%80%9D%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%81%E1%80%BB%E1%80%A5%E1%80%BA%E1%80%85%E1%80%95%E1%80%BA",
-            "title": "Shop Now",
+            "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
           }
@@ -1315,11 +1332,11 @@ const porkThreeHowTo = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
           "url": "https://new-hope-a1a0b.web.app/meals/uATPkaKbWia2XDiAlhWO?meal=%E1%80%9D%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%81%E1%80%BB%E1%80%A5%E1%80%BA%E1%80%85%E1%80%95%E1%80%BA",
-          "title": "Shop Now",
+          "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
         }]
@@ -1343,16 +1360,16 @@ const porkFourIngre = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
             "type": "postback",
-            "title": "How to cook",
+            "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
             "payload": "pork-four-how-to"
           },
           {
             "type": "web_url",
             "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
-            "title": "Shop Now",
+            "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
           }
@@ -1374,11 +1391,11 @@ const porkFourHowTo = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
           "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
-          "title": "Shop Now",
+          "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
         }]
@@ -1402,16 +1419,16 @@ const porkFiveIngre = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
             "type": "postback",
-            "title": "How to cook",
+            "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
             "payload": "pork-five-how-to"
           },
           {
             "type": "web_url",
             "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
-            "title": "Shop Now",
+            "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
           }
@@ -1433,11 +1450,11 @@ const porkFiveHowTo = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
           "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
-          "title": "Shop Now",
+          "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
         }]
@@ -1463,18 +1480,18 @@ const fish = (sender_psid) => {
             "subtitle": "ဒီတစ်ခါ နွေရာသီပူပူမှာခံတွင်းလိုက်စေမယ့်ဟင်းလေးတစ်မယ်ဖော်ပြပေးလိုက်ပါတယ်။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "fish-one-ingre"
               },
               {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "fish-one-how-to"
               },
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/meals/IC02O6Q2Qbue40Bg3bmt?meal=%E1%80%84%E1%80%AB%E1%80%B8%E1%80%80%E1%80%BC%E1%80%84%E1%80%BA%E1%80%B8%E1%80%99%E1%80%BC%E1%80%AE%E1%80%B8%E1%80%85%E1%80%90%E1%80%B0%E1%80%B8",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -1486,18 +1503,18 @@ const fish = (sender_psid) => {
             "subtitle": "ငါးပိထောင်းက နူးညံ့အိစက်နေတဲ့အတွက်သရက်သီးစိမ်းလေးနဲ့တို့မလား၊ သခွားသီးလေးနဲ့ကော်ပြီးတို့မလား၊ ထမင်းနဲ့ ဇွိကနဲနယ်စားမလား၊ စားချင်ရာနဲ့သာစားပါ။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "fish-two-ingre"
               },
               {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "fish-two-how-to"
               },
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/meals/yZx3jlOyLF7u9BGFsDqK?meal=%E1%80%9C%E1%80%BB%E1%80%BE%E1%80%AC%E1%80%92%E1%80%9C%E1%80%80%E1%80%BA%E1%80%9C%E1%80%8A%E1%80%BA%E1%80%84%E1%80%AB%E1%80%B8%E1%80%95%E1%80%AD%E1%80%91%E1%80%B1%E1%80%AC%E1%80%84%E1%80%BA%E1%80%B8",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -1509,18 +1526,18 @@ const fish = (sender_psid) => {
             "subtitle": "ငါးပိထောင်းက နူးညံ့အိစက်နေတဲ့အတွက်သရက်သီးစိမ်းလေးနဲ့တို့မလား၊ သခွားသီးလေးနဲ့ကော်ပြီးတို့မလား၊ ထမင်းနဲ့ ဇွိကနဲနယ်စားမလား၊ စားချင်ရာနဲ့သာစားပါ။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "fish-three-ingre"
               },
               {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "fish-three-how-to"
               },
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -1545,16 +1562,16 @@ const fishOneIngre = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
             "type": "postback",
-            "title": "How to cook",
+            "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
             "payload": "fish-one-how-to"
           },
           {
             "type": "web_url",
             "url": "https://new-hope-a1a0b.web.app/meals/IC02O6Q2Qbue40Bg3bmt?meal=%E1%80%84%E1%80%AB%E1%80%B8%E1%80%80%E1%80%BC%E1%80%84%E1%80%BA%E1%80%B8%E1%80%99%E1%80%BC%E1%80%AE%E1%80%B8%E1%80%85%E1%80%90%E1%80%B0%E1%80%B8",
-            "title": "Shop Now",
+            "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
           }
@@ -1576,11 +1593,11 @@ const fishOneHowTo = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
           "url": "https://new-hope-a1a0b.web.app/meals/IC02O6Q2Qbue40Bg3bmt?meal=%E1%80%84%E1%80%AB%E1%80%B8%E1%80%80%E1%80%BC%E1%80%84%E1%80%BA%E1%80%B8%E1%80%99%E1%80%BC%E1%80%AE%E1%80%B8%E1%80%85%E1%80%90%E1%80%B0%E1%80%B8",
-          "title": "Shop Now",
+          "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
         }]
@@ -1604,16 +1621,16 @@ const fishTwoIngre = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
             "type": "postback",
-            "title": "How to cook",
+            "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
             "payload": "fish-two-how-to"
           },
           {
             "type": "web_url",
             "url": "https://new-hope-a1a0b.web.app/meals/yZx3jlOyLF7u9BGFsDqK?meal=%E1%80%9C%E1%80%BB%E1%80%BE%E1%80%AC%E1%80%92%E1%80%9C%E1%80%80%E1%80%BA%E1%80%9C%E1%80%8A%E1%80%BA%E1%80%84%E1%80%AB%E1%80%B8%E1%80%95%E1%80%AD%E1%80%91%E1%80%B1%E1%80%AC%E1%80%84%E1%80%BA%E1%80%B8",
-            "title": "Shop Now",
+            "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
           }
@@ -1635,11 +1652,11 @@ const fishTwoHowTo = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
           "url": "https://new-hope-a1a0b.web.app/meals/yZx3jlOyLF7u9BGFsDqK?meal=%E1%80%9C%E1%80%BB%E1%80%BE%E1%80%AC%E1%80%92%E1%80%9C%E1%80%80%E1%80%BA%E1%80%9C%E1%80%8A%E1%80%BA%E1%80%84%E1%80%AB%E1%80%B8%E1%80%95%E1%80%AD%E1%80%91%E1%80%B1%E1%80%AC%E1%80%84%E1%80%BA%E1%80%B8",
-          "title": "Shop Now",
+          "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
         }]
@@ -1663,16 +1680,16 @@ const fishThreeIngre = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
             "type": "postback",
-            "title": "How to cook",
+            "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
             "payload": "fish-three-how-to"
           },
           {
             "type": "web_url",
             "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
-            "title": "Shop Now",
+            "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
           }
@@ -1694,11 +1711,11 @@ const fishThreeHowTo = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
           "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
-          "title": "Shop Now",
+          "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
         }]
@@ -1758,18 +1775,18 @@ const seafood = (sender_psid) => {
             "subtitle": "ဒီတစ်ခါ နွေရာသီပူပူမှာခံတွင်းလိုက်စေမယ့်ဟင်းလေးတစ်မယ်ဖော်ပြပေးလိုက်ပါတယ်။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "sf-one-ingre"
               },
               {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "sf-one-how-to"
               },
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/meals/8U5AFaFTILZe5S5wv8HN?meal=%E1%80%80%E1%80%84%E1%80%BA%E1%80%B8%E1%80%99%E1%80%BD%E1%80%94%E1%80%BA%E1%80%A1%E1%80%81%E1%80%BB%E1%80%AD%E1%80%AF%E1%80%81%E1%80%BB%E1%80%80%E1%80%BA",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -1781,19 +1798,19 @@ const seafood = (sender_psid) => {
             "subtitle": "ဒီဟင်းပွဲလေးက လူကြီးမင်းတို့ ဆိုင်တွေမှာ မှာစားလေးရှိတဲ့ ပုစွန်ပဲကြာဇံမြေအိုး ဆိုတဲ့ဟင်းပွဲလေးနဲ့ ခပ်ဆင်ဆင်တူပါတယ်။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "sf-two-ingre"
               },
               {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "sf-two-how-to"
               },
 
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/meals/NWDh7W1OAQ7V49Aoa0BN?meal=%E1%80%95%E1%80%B2%E1%80%80%E1%80%BC%E1%80%AC%E1%80%87%E1%80%B6%E1%80%94%E1%80%BE%E1%80%84%E1%80%BA%E1%80%B7%E1%80%95%E1%80%AF%E1%80%85%E1%80%BD%E1%80%94%E1%80%BA%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -1805,19 +1822,19 @@ const seafood = (sender_psid) => {
             "subtitle": "ဒီတစ်ပါတ်မှာတော့ အရွယ်သုံးပါးနှစ်သက်စေမယ့်ရိုးရှင်းတဲ့ဟင်းလျာလေးတစ်မယ်ဖော်ပြပေးလိုက်ပါတယ်။",
             "buttons": [{
                 "type": "postback",
-                "title": "View ingredients",
+                "title": "ပါဝင်ပစ္စည်းများ",
                 "payload": "sf-three-ingre"
               },
               {
                 "type": "postback",
-                "title": "How to cook?",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
                 "payload": "sf-three-how-to"
               },
 
               {
                 "type": "web_url",
                 "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
-                "title": "Shop Now",
+                "title": "ဝယ်မယ်",
                 "webview_height_ratio": "full",
                 "messenger_extensions": true,
               }
@@ -1842,16 +1859,16 @@ const sfOneIngre = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
             "type": "postback",
-            "title": "How to cook",
+            "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
             "payload": "sf-one-how-to"
           },
           {
             "type": "web_url",
             "url": "https://new-hope-a1a0b.web.app/meals/8U5AFaFTILZe5S5wv8HN?meal=%E1%80%80%E1%80%84%E1%80%BA%E1%80%B8%E1%80%99%E1%80%BD%E1%80%94%E1%80%BA%E1%80%A1%E1%80%81%E1%80%BB%E1%80%AD%E1%80%AF%E1%80%81%E1%80%BB%E1%80%80%E1%80%BA",
-            "title": "Shop Now",
+            "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
           }
@@ -1873,11 +1890,11 @@ const sfOneHowTo = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
           "url": "https://new-hope-a1a0b.web.app/meals/8U5AFaFTILZe5S5wv8HN?meal=%E1%80%80%E1%80%84%E1%80%BA%E1%80%B8%E1%80%99%E1%80%BD%E1%80%94%E1%80%BA%E1%80%A1%E1%80%81%E1%80%BB%E1%80%AD%E1%80%AF%E1%80%81%E1%80%BB%E1%80%80%E1%80%BA",
-          "title": "Shop Now",
+          "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
         }]
@@ -1901,16 +1918,16 @@ const sfTwoIngre = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
             "type": "postback",
-            "title": "How to cook",
+            "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
             "payload": "sf-two-how-to"
           },
           {
             "type": "web_url",
             "url": "https://new-hope-a1a0b.web.app/meals/NWDh7W1OAQ7V49Aoa0BN?meal=%E1%80%95%E1%80%B2%E1%80%80%E1%80%BC%E1%80%AC%E1%80%87%E1%80%B6%E1%80%94%E1%80%BE%E1%80%84%E1%80%BA%E1%80%B7%E1%80%95%E1%80%AF%E1%80%85%E1%80%BD%E1%80%94%E1%80%BA%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
-            "title": "Shop Now",
+            "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
           }
@@ -1932,11 +1949,11 @@ const sfTwoHowTo = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
           "url": "https://new-hope-a1a0b.web.app/meals/NWDh7W1OAQ7V49Aoa0BN?meal=%E1%80%95%E1%80%B2%E1%80%80%E1%80%BC%E1%80%AC%E1%80%87%E1%80%B6%E1%80%94%E1%80%BE%E1%80%84%E1%80%BA%E1%80%B7%E1%80%95%E1%80%AF%E1%80%85%E1%80%BD%E1%80%94%E1%80%BA%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
-          "title": "Shop Now",
+          "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
         }]
@@ -1960,16 +1977,16 @@ const sfThreeIngre = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
             "type": "postback",
-            "title": "How to cook",
+            "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
             "payload": "sf-three-how-to"
           },
           {
             "type": "web_url",
             "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
-            "title": "Shop Now",
+            "title": "ဝယ်မယ်",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
           }
@@ -1991,11 +2008,11 @@ const sfThreeHowTo = (sender_psid) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "What do you want to eat?",
+        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို ဝယ်မယ် ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
         "buttons": [{
           "type": "web_url",
           "url": "https://new-hope-a1a0b.web.app/products?meal=XpPBwQM4xrR8bu3mY5V6",
-          "title": "Shop Now",
+          "title": "ဝယ်မယ်",
           "webview_height_ratio": "full",
           "messenger_extensions": true,
         }]
@@ -2173,11 +2190,11 @@ const setupPersistentMenu = (res) => {
             "title": "Menu",
             "type": "nested",
             "call_to_actions": [{
-              "type": "web_url",
-              "title": "My Orders",
-              "url": "https://new-hope-a1a0b.web.app/my/orders",
-              "webview_height_ratio": "full",
-              "messenger_extensions": true,
+                "type": "web_url",
+                "title": "My Orders",
+                "url": "https://new-hope-a1a0b.web.app/my/orders",
+                "webview_height_ratio": "full",
+                "messenger_extensions": true,
               },
               {
                 "title": "Search a meal",
