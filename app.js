@@ -149,6 +149,9 @@ const handleMessage = (sender_psid, received_message) => {
     case "seafood":
       seafood(sender_psid);
       break;
+    case "main-menu":
+      greetUser(sender_psid);
+      break;
     default:
       defaultReply(sender_psid);
   }
@@ -506,8 +509,7 @@ const searchMeals = (sender_psid) => {
 }
 
 const todayMeals = (sender_psid) => {
-  let response;
-  response = {
+  let response1 = {
     "attachment": {
       "type": "template",
       "payload": {
@@ -561,13 +563,23 @@ const todayMeals = (sender_psid) => {
         ]
       }
     }
-  }
-  callSend(sender_psid, response);
+  };
+  let response2 = {
+    "text": "Main Menu သို့ပြန်သွားလိုပါသလားခင်ဗျာ။",
+    "quick_replies": [{
+      "content_type": "text",
+      "title": "အစသို့ပြန်သွားရန်",
+      "image_url": "https://i.imgur.com/YT1qtmF.png",
+      "payload": "main-menu"
+    }]
+  };
+  callSend(sender_psid, response1).then(() => {
+    return callSend(sender_psid, response2);
+  });
 }
 
 const popMeals = (sender_psid) => {
-  let response;
-  response = {
+  let response1 = {
     "attachment": {
       "type": "template",
       "payload": {
@@ -623,13 +635,23 @@ const popMeals = (sender_psid) => {
       }
     }
   }
-  callSend(sender_psid, response);
+  let response2 = {
+    "text": "Main Menu သို့ပြန်သွားလိုပါသလားခင်ဗျာ။",
+    "quick_replies": [{
+      "content_type": "text",
+      "title": "အစသို့ပြန်သွားရန်",
+      "image_url": "https://i.imgur.com/YT1qtmF.png",
+      "payload": "main-menu"
+    }]
+  };
+  callSend(sender_psid, response1).then(() => {
+    return callSend(sender_psid, response2);
+  });
 }
 
 /* FUNCTION TO SEARCH BY CATEGORY */
 const searchByCategory = (sender_psid) => {
-  let response;
-  response = {
+  let response1 = {
     "text": "Categories တခုချင်းစီကို နှိပ်ပြီး ရှာလို့ရပါတယ်။",
     "quick_replies": [{
         "content_type": "text",
@@ -663,13 +685,23 @@ const searchByCategory = (sender_psid) => {
       }
     ]
   };
-  callSend(sender_psid, response);
+  let response2 = {
+    "text": "Main Menu သို့ပြန်သွားလိုပါသလားခင်ဗျာ။",
+    "quick_replies": [{
+      "content_type": "text",
+      "title": "အစသို့ပြန်သွားရန်",
+      "image_url": "https://i.imgur.com/YT1qtmF.png",
+      "payload": "main-menu"
+    }]
+  };
+  callSend(sender_psid, response1).then(() => {
+    return callSend(sender_psid, response2);
+  });
 }
 
 /* FUNCTION TO CHICKEN */
 const chicken = (sender_psid) => {
-  let response;
-  response = {
+  let response1 = {
     "attachment": {
       "type": "template",
       "payload": {
@@ -797,7 +829,18 @@ const chicken = (sender_psid) => {
       }
     }
   }
-  callSend(sender_psid, response);
+  let response2 = {
+    "text": "Main Menu သို့ပြန်သွားလိုပါသလားခင်ဗျာ။",
+    "quick_replies": [{
+      "content_type": "text",
+      "title": "အစသို့ပြန်သွားရန်",
+      "image_url": "https://i.imgur.com/YT1qtmF.png",
+      "payload": "main-menu"
+    }]
+  };
+  callSend(sender_psid, response1).then(() => {
+    return callSend(sender_psid, response2);
+  });
 }
 
 
@@ -1098,8 +1141,7 @@ const chFiveHowTo = (sender_psid) => {
 
 /* FUNCTION TO PORK */
 const pork = (sender_psid) => {
-  let response;
-  response = {
+  let response1 = {
     "attachment": {
       "type": "template",
       "payload": {
@@ -1219,7 +1261,18 @@ const pork = (sender_psid) => {
       }
     }
   }
-  callSend(sender_psid, response);
+  let response2 = {
+    "text": "Main Menu သို့ပြန်သွားလိုပါသလားခင်ဗျာ။",
+    "quick_replies": [{
+      "content_type": "text",
+      "title": "အစသို့ပြန်သွားရန်",
+      "image_url": "https://i.imgur.com/YT1qtmF.png",
+      "payload": "main-menu"
+    }]
+  };
+  callSend(sender_psid, response1).then(() => {
+    return callSend(sender_psid, response2);
+  });
 }
 
 /*********************
@@ -1519,8 +1572,7 @@ const porkFiveHowTo = (sender_psid) => {
 
 /* FUNCTION TO FISH */
 const fish = (sender_psid) => {
-  let response;
-  response = {
+  let response1 = {
     "attachment": {
       "type": "template",
       "payload": {
@@ -1598,7 +1650,18 @@ const fish = (sender_psid) => {
       }
     }
   }
-  callSend(sender_psid, response);
+  let response2 = {
+    "text": "Main Menu သို့ပြန်သွားလိုပါသလားခင်ဗျာ။",
+    "quick_replies": [{
+      "content_type": "text",
+      "title": "အစသို့ပြန်သွားရန်",
+      "image_url": "https://i.imgur.com/YT1qtmF.png",
+      "payload": "main-menu"
+    }]
+  };
+  callSend(sender_psid, response1).then(() => {
+    return callSend(sender_psid, response2);
+  });
 }
 
 /*********************
@@ -1818,8 +1881,7 @@ const beef = (sender_psid) => {
 
 /* FUNCTION TO SEAFOOD */
 const seafood = (sender_psid) => {
-  let response;
-  response = {
+  let response1 = {
     "attachment": {
       "type": "template",
       "payload": {
@@ -1899,7 +1961,18 @@ const seafood = (sender_psid) => {
       }
     }
   }
-  callSend(sender_psid, response);
+  let response2 = {
+    "text": "Main Menu သို့ပြန်သွားလိုပါသလားခင်ဗျာ။",
+    "quick_replies": [{
+      "content_type": "text",
+      "title": "အစသို့ပြန်သွားရန်",
+      "image_url": "https://i.imgur.com/YT1qtmF.png",
+      "payload": "main-menu"
+    }]
+  };
+  callSend(sender_psid, response1).then(() => {
+    return callSend(sender_psid, response2);
+  });
 }
 
 /************************
