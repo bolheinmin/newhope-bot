@@ -129,13 +129,10 @@ const handleMessage = (sender_psid, received_message) => {
 
   switch (user_message) {
     case "hi":
-      getStarted(sender_psid);
+      greetUser(sender_psid);
       break;
     case "!admin":
       admin(sender_psid);
-      break;
-    case "meals":
-      meals(sender_psid);
       break;
     default:
       defaultReply(sender_psid);
@@ -180,6 +177,9 @@ const handlePostback = (sender_psid, received_postback) => {
 
   switch (payload) {
     case "get_started":
+      getStarted(sender_psid);
+      break;
+    case "mm-lan":
       greetUser(sender_psid);
       break;
     case "search-meals":
@@ -299,27 +299,69 @@ const handlePostback = (sender_psid, received_postback) => {
   }
 }
 
-// response = {
-//   "attachment": {
-//     "type": "template",
-//     "payload": {
-//       "template_type": "generic",
-//       "elements": [{
-//         "title": "Create a tour package",
-//         "buttons": [{
-//             "type": "web_url",
-//             "title": "create",
-//             "url": "https://newhope-grocery-store.herokuapp.com/addpackage/" + sender_psid,
-//             "webview_height_ratio": "full",
-//             "messenger_extensions": true,
-//           },
+/* FUNCTION TO GETSTARTED */
+async function getStarted(sender_psid) {
+  let user = await getUserProfile(sender_psid);
+  let response = {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "button",
+        "text": "Hi" + user.first_name + " " + user.last_name + ". Welcome to Newhope Grocery Store.\n\n🇺🇸 Please choose the language below.\n\n🇲🇲 မိမိနှစ်သက်ရာဘာသာစကားကိုရွေးပါ။",
+        "buttons": [{
+            "type": "postback",
+            "title": "English",
+            "payload": "eng-lan"
+          },
+          {
+            "type": "postback",
+            "title": "မြန်မာ",
+            "payload": "mm-lan"
+          }
+        ]
+      }
+    }
+  }
+  callSend(sender_psid, response);
+}
 
-//         ],
-//       }]
-//     }
-//   }
-// }
-// callSendAPI(sender_psid, response);
+/*FUNCTION TO GREET USER*/
+async function greetUser(sender_psid) {
+  let user = await getUserProfile(sender_psid);
+  let response1 = {
+    "text": "မင်္ဂလာပါခင်ဗျ\nNew Hope Grocery Store မှ ကြိုဆိုပါတယ်ခင်ဗျ 🙂 "
+  };
+  let response2 = {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "button",
+        "text": "New Hope မှာရှိတဲ့ ဟင်းပွဲတွေရဲ့ပါဝင်ပစ္စည်းများဝယ်ဖို့ “ဝယ်မယ်” ဆိုတဲ့ Button ကိုနှိပ်ပြီး ဝယ်ယူနိုင်ပါတယ်ခင်ဗျ 😉",
+        "buttons": [{
+            "type": "postback",
+            "title": "Admin နဲ့ Chat မယ်",
+            "payload": "chat-with-admin"
+          },
+          {
+            "type": "postback",
+            "title": "ဟင်းပွဲရှာမယ်",
+            "payload": "search-meals"
+          },
+          {
+            "type": "web_url",
+            "title": "ဝယ်မယ်",
+            "url": "https://new-hope-a1a0b.web.app",
+            "webview_height_ratio": "full",
+            "messenger_extensions": true,
+          }
+        ]
+      }
+    }
+  };
+  callSend(sender_psid, response1).then(() => {
+    return callSend(sender_psid, response2);
+  });
+}
 
 /* FUNCTION TO ADMIN */
 const admin = (sender_psid) => {
@@ -382,41 +424,6 @@ const admin = (sender_psid) => {
   callSend(sender_psid, response);
 }
 
-/*FUNCTION TO GREET USER*/
-async function greetUser(sender_psid) {
-  let user = await getUserProfile(sender_psid);
-  let response1 = {
-    "text": "မင်္ဂလာပါ " + user.first_name + " " + user.last_name + ". New Hope Grocery မှ ကြိုဆိုပါတယ်ခင်ဗျ 🙂"
-  };
-  let response2 = {
-    "attachment": {
-      "type": "template",
-      "payload": {
-        "template_type": "button",
-        "text": "မိမိလိုအပ်သောပါဝင်ပစ္စည်းများကို “ဝယ်မယ်” ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်နော်",
-        "buttons": [{
-            "type": "postback",
-            "title": "Admin နဲ့ Chat မယ်",
-            "payload": "chat-with-admin"
-          },
-          {
-            "type": "postback",
-            "title": "Search Meals",
-            "payload": "search-meals"
-          },
-          {
-            "type": "postback",
-            "title": "Buy Now",
-            "payload": "buy-now"
-          }
-        ]
-      }
-    }
-  };
-  callSend(sender_psid, response1).then(() => {
-    return callSend(sender_psid, response2);
-  });
-}
 
 /* FUNCTION TO SEARCH MEALS */
 const searchMeals = (sender_psid) => {
@@ -2014,49 +2021,49 @@ const sfThreeHowTo = (sender_psid) => {
   });
 }
 
-const meals = (sender_psid) => {
+// const meals = (sender_psid) => {
 
-  db.collection('meals').get()
-    .then((snapshot) => {
-      let elementItems = [];
+//   db.collection('meals').get()
+//     .then((snapshot) => {
+//       let elementItems = [];
 
-      snapshot.forEach((doc) => {
+//       snapshot.forEach((doc) => {
 
-        var obj = {};
-        //obj._id  = doc.id ;        
-        obj.title = doc.data().name;
+//         var obj = {};
+//         //obj._id  = doc.id ;        
+//         obj.title = doc.data().name;
 
-        obj.image_url = doc.data().imageUrl;
-        obj.buttons = [{
-          "type": "web_url",
-          "title": "BOOK NOW",
-          "url": "https://www.google.com"
-        }];
+//         obj.image_url = doc.data().imageUrl;
+//         obj.buttons = [{
+//           "type": "web_url",
+//           "title": "BOOK NOW",
+//           "url": "https://www.google.com"
+//         }];
 
-        elementItems.push(obj);
+//         elementItems.push(obj);
 
-      });
+//       });
 
-      let response = {
-        "attachment": {
-          "type": "template",
-          "payload": {
-            "template_type": "generic",
-            "image_aspect_ratio": "square",
-            "elements": elementItems
-          }
-        }
-      }
+//       let response = {
+//         "attachment": {
+//           "type": "template",
+//           "payload": {
+//             "template_type": "generic",
+//             "image_aspect_ratio": "square",
+//             "elements": elementItems
+//           }
+//         }
+//       }
 
-      console.log("RESPONSE", response);
-      console.log("SENDER", sender_psid, );
-      callSend(sender_psid, response);
-    })
-    .catch((err) => {
-      console.log('Error getting documents', err);
-    });
+//       console.log("RESPONSE", response);
+//       console.log("SENDER", sender_psid, );
+//       callSend(sender_psid, response);
+//     })
+//     .catch((err) => {
+//       console.log('Error getting documents', err);
+//     });
 
-}
+// }
 
 
 const defaultReply = (sender_psid) => {
@@ -2095,15 +2102,6 @@ const getUserProfile = (sender_psid) => {
       }
     });
   });
-}
-
-/* FUNCTION TO GETSTARTED */
-async function getStarted(sender_psid) {
-  let user = await getUserProfile(sender_psid);
-  let response = {
-    "text": "Hi" + user.first_name + " " + user.last_name + ". Welcome to Newhope Grocery Store.\n\n🇺🇸 Please choose the language below.\n\n 🇲🇲 မိ မိႏွ စ္သက္ရာဘာသာစကားကိုေ ရြးပါ။ \n\n🇲🇲 မိမိနှစ်သက်ရာဘာသာစကားကိုရွေးပါ။ "
-  }
-  callSend(sender_psid, response);
 }
 
 const callSendAPI = (sender_psid, response) => {
