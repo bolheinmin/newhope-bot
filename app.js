@@ -557,7 +557,7 @@ const chicken = (sender_psid) => {
         "template_type": "generic",
         "elements": [{
             "title": "ကြက်သားချဥ်စော်ခါးသီးသောက်ဆမ်း",
-            "image_url": "https://firebasestorage.googleapis.com/v0/b/new-hope-a1a0b.appspot.com/o/%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%2F%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%81%E1%80%BB%E1%80%A5%E1%80%BA%E1%80%85%E1%80%B1%E1%80%AC%E1%80%BA%E1%80%81%E1%80%AB%E1%80%B8%E1%80%9E%E1%80%AE%E1%80%B8%E1%80%9E%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%86%E1%80%99%E1%80%BA%E1%80%B8_1588419415072?alt=media&token=476692f3-e47f-4fc8-85e9-e41c44351492",
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/new-hope-a1a0b.appspot.com/o/%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%2F%E1%80%80%E1%80%BC%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%E1%80%81%E1%80%BB%E1%80%A5%E1%80%BA%E1%80%85%E1%80%B1%E1%80%AC%E1%80%BA%E1%80%81%E1%80%AB%E1%80%B8%E1%80%9E%E1%80%AE%E1%80%B8%E1%80%9E%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%86%E1%80%99%E1%80%BA%E1%80%B8.jpeg?alt=media&token=5a142d5d-aba2-4074-a74d-a30951232e2e",
             "subtitle": "ဒီတစ်ခါ နွေရာသီပူပူမှာခံတွင်းလိုက်စေမယ့်ဟင်းလေးတစ်မယ်ဖော်ပြပေးလိုက်ပါတယ်။",
             "buttons": [{
                 "type": "postback",
@@ -2200,8 +2200,8 @@ const setupPersistentMenu = (res) => {
           },
           {
             "type": "web_url",
-            "title": "Visit website",
-            "url": "http://www.google.com",
+            "title": "Helps",
+            "url": "https://new-hope-a1a0b.web.app/helps",
             "webview_height_ratio": "full"
           }
         ]
