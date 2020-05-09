@@ -2048,7 +2048,7 @@ async function getStarted(sender_psid) {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "မင်္ဂလာပါ " + user.first_name + " " + user.last_name + "",
+        "text": "မင်္ဂလာပါ " + user.first_name + " " + user.last_name + ". Welcome to Newhope Grocery Store.\n\n🇺🇸 Please choose the language below.\n\n🇲🇲 မိမိနှစ်သက်ရာဘာသာစကားကိုရွေးပါ။",
         "buttons": [{
             "type": "postback",
             "title": "English",
@@ -2070,7 +2070,7 @@ async function getStarted(sender_psid) {
 async function greetUser(sender_psid) {
   let user = await getUserProfile(sender_psid);
   let response1 = {
-    "text": "မင်္ဂလာပါ " + user.first_name + " " + user.last_name + "မင်္ဂလာပါခင်ဗျ\nNew Hope Grocery Store မှ ကြိုဆိုပါတယ်ခင်ဗျ 🙂 "
+    "text": "မင်္ဂလာပါခင်ဗျ\nNew Hope Grocery Store မှ ကြိုဆိုပါတယ်ခင်ဗျ 🙂 "
   };
   let response2 = {
     "attachment": {
