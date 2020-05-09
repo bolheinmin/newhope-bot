@@ -2048,7 +2048,7 @@ async function getStarted(sender_psid) {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "Hi" + user.first_name + " " + user.last_name + ". Welcome to Newhope Grocery Store.\n\n🇲🇲 မိမိနှစ်သက်ရာဘာသာစကားကိုရွေးပါ။\n\n🇺🇸 Please choose the language below.",
+        "text": "Hi " + user.first_name + " " + user.last_name + ". Welcome to Newhope Grocery Store.\n\n🇲🇲 မိမိနှစ်သက်ရာဘာသာစကားကိုရွေးပါ။\n\n🇺🇸 Please choose the language below.",
         "buttons": [{
             "type": "postback",
             "title": "မြန်မာ",
