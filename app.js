@@ -299,70 +299,6 @@ function handleQuickReply(sender_psid, received_message) {
 
 }
 
-/* FUNCTION TO GETSTARTED */
-async function getStarted(sender_psid) {
-  let user = await getUserProfile(sender_psid);
-  let response = {
-    "attachment": {
-      "type": "template",
-      "payload": {
-        "template_type": "button",
-        "text": "မင်္ဂလာပါ " + user.first_name + " " + user.last_name + ". Welcome to Newhope Grocery Store.\n\n🇺🇸 Please choose the language below.\n\n🇲🇲 မိမိနှစ်သက်ရာဘာသာစကားကိုရွေးပါ။",
-        "buttons": [{
-            "type": "postback",
-            "title": "English",
-            "payload": "eng-lan"
-          },
-          {
-            "type": "postback",
-            "title": "မြန်မာ",
-            "payload": "mm-lan"
-          }
-        ]
-      }
-    }
-  }
-  callSend(sender_psid, response);
-}
-
-/*FUNCTION TO GREET USER*/
-async function greetUser(sender_psid) {
-  let user = await getUserProfile(sender_psid);
-  let response1 = {
-    "text": "မင်္ဂလာပါ " + user.first_name + " " + user.last_name + "မင်္ဂလာပါခင်ဗျ\nNew Hope Grocery Store မှ ကြိုဆိုပါတယ်ခင်ဗျ 🙂 "
-  };
-  let response2 = {
-    "attachment": {
-      "type": "template",
-      "payload": {
-        "template_type": "button",
-        "text": "New Hope မှာရှိတဲ့ ဟင်းပွဲတွေရဲ့ပါဝင်ပစ္စည်းများဝယ်ဖို့ “ဝယ်မယ်” ဆိုတဲ့ Button ကိုနှိပ်ပြီး ဝယ်ယူနိုင်ပါတယ်ခင်ဗျ 😉",
-        "buttons": [{
-            "type": "postback",
-            "title": "Admin နဲ့ Chat မယ်",
-            "payload": "chat-with-admin"
-          },
-          {
-            "type": "postback",
-            "title": "ဟင်းပွဲရှာမယ်",
-            "payload": "search-meals"
-          },
-          {
-            "type": "web_url",
-            "title": "ဝယ်မယ်",
-            "url": "https://new-hope-a1a0b.web.app",
-            "webview_height_ratio": "full",
-            "messenger_extensions": true,
-          }
-        ]
-      }
-    }
-  };
-  callSend(sender_psid, response1).then(() => {
-    return callSend(sender_psid, response2);
-  });
-}
-
 /* FUNCTION TO ADMIN */
 const admin = (sender_psid) => {
   let response;
@@ -2104,6 +2040,69 @@ const getUserProfile = (sender_psid) => {
   });
 }
 
+/* FUNCTION TO GETSTARTED */
+async function getStarted(sender_psid) {
+  let user = await getUserProfile(sender_psid);
+  let response = {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "button",
+        "text": "မင်္ဂလာပါ " + user.first_name + " " + user.last_name + ". Welcome to Newhope Grocery Store.\n\n🇺🇸 Please choose the language below.\n\n🇲🇲 မိမိနှစ်သက်ရာဘာသာစကားကိုရွေးပါ။",
+        "buttons": [{
+            "type": "postback",
+            "title": "English",
+            "payload": "eng-lan"
+          },
+          {
+            "type": "postback",
+            "title": "မြန်မာ",
+            "payload": "mm-lan"
+          }
+        ]
+      }
+    }
+  }
+  callSend(sender_psid, response);
+}
+
+/*FUNCTION TO GREET USER*/
+async function greetUser(sender_psid) {
+  let user = await getUserProfile(sender_psid);
+  let response1 = {
+    "text": "မင်္ဂလာပါ " + user.first_name + " " + user.last_name + "မင်္ဂလာပါခင်ဗျ\nNew Hope Grocery Store မှ ကြိုဆိုပါတယ်ခင်ဗျ 🙂 "
+  };
+  let response2 = {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "button",
+        "text": "New Hope မှာရှိတဲ့ ဟင်းပွဲတွေရဲ့ပါဝင်ပစ္စည်းများဝယ်ဖို့ “ဝယ်မယ်” ဆိုတဲ့ Button ကိုနှိပ်ပြီး ဝယ်ယူနိုင်ပါတယ်ခင်ဗျ 😉",
+        "buttons": [{
+            "type": "postback",
+            "title": "Admin နဲ့ Chat မယ်",
+            "payload": "chat-with-admin"
+          },
+          {
+            "type": "postback",
+            "title": "ဟင်းပွဲရှာမယ်",
+            "payload": "search-meals"
+          },
+          {
+            "type": "web_url",
+            "title": "ဝယ်မယ်",
+            "url": "https://new-hope-a1a0b.web.app",
+            "webview_height_ratio": "full",
+            "messenger_extensions": true,
+          }
+        ]
+      }
+    }
+  };
+  callSend(sender_psid, response1).then(() => {
+    return callSend(sender_psid, response2);
+  });
+}
 const callSendAPI = (sender_psid, response) => {
   let request_body = {
     "recipient": {
@@ -2189,19 +2188,14 @@ const setupPersistentMenu = (res) => {
                 "payload": "search-meals"
               },
               {
-                "title": "Myanmar (Zawgyi)",
+                "title": "Myanmar",
                 "type": "postback",
-                "payload": "mm-zawgyi"
-              },
-              {
-                "title": "Myanmar (Unicode)",
-                "type": "postback",
-                "payload": "mm-unicode"
+                "payload": "mm-lan"
               },
               {
                 "title": "English",
                 "type": "postback",
-                "payload": "eng"
+                "payload": "eng-lan"
               },
             ]
           },
