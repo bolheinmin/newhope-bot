@@ -2048,7 +2048,7 @@ async function getStarted(sender_psid) {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "မင်္ဂလာပါ " + user.first_name + " " + user.last_name + ". Welcome to Newhope Grocery Store.\n\n🇺🇸 Please choose the language below.\n\n🇲🇲 မိမိနှစ်သက်ရာဘာသာစကားကိုရွေးပါ။",
+        "text": "မင်္ဂလာပါ " + user.first_name + " " + user.last_name + "",
         "buttons": [{
             "type": "postback",
             "title": "English",
