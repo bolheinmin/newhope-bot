@@ -347,14 +347,14 @@ async function getStarted(sender_psid) {
 /*FUNCTION TO GREET USER*/
 async function greetUser(sender_psid) {
   let response1 = {
-    "text": "မင်္ဂလာပါခင်ဗျ\nNew Hope Grocery Store မှ ကြိုဆိုပါတယ်ခင်ဗျ 🙂 "
+    "text": "မင်္ဂလာပါခင်ဗျ။\nNew Hope Grocery Store မှ ကြိုဆိုပါတယ်။ 🙂 "
   };
   let response2 = {
     "attachment": {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "New Hope မှာရှိတဲ့ ဟင်းပွဲတွေရဲ့ပါဝင်ပစ္စည်းများဝယ်ဖို့ “ဝယ်မယ်” ဆိုတဲ့ Button ကိုနှိပ်ပြီး ဝယ်ယူနိုင်ပါတယ်ခင်ဗျ 😉",
+        "text": "New Hope မှာရှိတဲ့ ဟင်းပွဲတွေရဲ့ပါဝင်ပစ္စည်းများဝယ်ဖို့ “ဝယ်မယ်” ဆိုတဲ့ Button ကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်ခင်ဗျ 😉",
         "buttons": [{
             "type": "postback",
             "title": "Admin နဲ့ Chat မယ်",
