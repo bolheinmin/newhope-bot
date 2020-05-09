@@ -149,9 +149,6 @@ const handleMessage = (sender_psid, received_message) => {
     case "seafood":
       seafood(sender_psid);
       break;
-    case "main-menu":
-      greetUser(sender_psid);
-      break;
     default:
       defaultReply(sender_psid);
   }
@@ -311,6 +308,9 @@ function handleQuickReply(sender_psid, received_message) {
       break;
     case "sea-food":
       seafood(sender_psid);
+      break;
+    case "main-menu":
+      greetUser(sender_psid);
       break;
     default:
       defaultReply(sender_psid);
