@@ -585,6 +585,52 @@ const popMeals = (sender_psid) => {
       "payload": {
         "template_type": "generic",
         "elements": [{
+            "title": "ကဗျာလွတ်ကုန်းဘောင်ကြော်",
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/new-hope-a1a0b.appspot.com/o/%E1%80%9D%E1%80%80%E1%80%BA%E1%80%9E%E1%80%AC%E1%80%B8%2F%E1%80%80%E1%80%97%E1%80%BB%E1%80%AC%E1%80%9C%E1%80%BD%E1%80%90%E1%80%BA%E1%80%80%E1%80%AF%E1%80%94%E1%80%BA%E1%80%B8%E1%80%98%E1%80%B1%E1%80%AC%E1%80%84%E1%80%BA%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA.jpeg?alt=media&token=d3d25a4b-8ba1-42bb-88b7-27fa293cc474",
+            "subtitle": "ဒီဟင်းပွဲအတွက်မည်သည့်အသားကိုမဆိုအသုံးပြုနိူင်ပါတယ်။ ကြက်၊ ဝက်၊ အမဲ၊ဆိတ်။ ကျွန်တော်က ဝက်လိုင်းသားလေးအသုံးပြုထားပါတယ်။",
+            "buttons": [{
+                "type": "postback",
+                "title": "ပါဝင်ပစ္စည်းများ",
+                "payload": "pork-two-ingre"
+              },
+              {
+                "type": "postback",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
+                "payload": "pork-two-how-to"
+              },
+              {
+                "type": "web_url",
+                "url": "https://new-hope-a1a0b.web.app/meals/fZllELy9hfhmjlU3UKUb?meal=%E1%80%80%E1%80%97%E1%80%BB%E1%80%AC%E1%80%9C%E1%80%BD%E1%80%90%E1%80%BA%E1%80%80%E1%80%AF%E1%80%94%E1%80%BA%E1%80%B8%E1%80%98%E1%80%B1%E1%80%AC%E1%80%84%E1%80%BA%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%BA",
+                "title": "ဝယ်မယ်",
+                "webview_height_ratio": "full",
+                "messenger_extensions": true,
+              }
+            ]
+          },
+          {
+            "title": "လျှာဒလက်လည်ငါးပိထောင်း",
+            "image_url": "https://firebasestorage.googleapis.com/v0/b/new-hope-a1a0b.appspot.com/o/%E1%80%84%E1%80%AB%E1%80%B8%2F%E1%80%9C%E1%80%BB%E1%80%BE%E1%80%AC%E1%80%92%E1%80%9C%E1%80%80%E1%80%BA%E1%80%9C%E1%80%8A%E1%80%BA%E1%80%84%E1%80%AB%E1%80%B8%E1%80%95%E1%80%AD%E1%80%91%E1%80%B1%E1%80%AC%E1%80%84%E1%80%BA%E1%80%B8_1588504037617?alt=media&token=442cc29c-1b1d-43c6-9f47-d41cc03f1a1b",
+            "subtitle": "ငါးပိထောင်းက နူးညံ့အိစက်နေတဲ့အတွက်သရက်သီးစိမ်းလေးနဲ့တို့မလား၊ သခွားသီးလေးနဲ့ကော်ပြီးတို့မလား၊ ထမင်းနဲ့ ဇွိကနဲနယ်စားမလား၊ စားချင်ရာနဲ့သာစားပါ။",
+            "buttons": [{
+                "type": "postback",
+                "title": "ပါဝင်ပစ္စည်းများ",
+                "payload": "fish-two-ingre"
+              },
+              {
+                "type": "postback",
+                "title": "ချက်ပြုတ်ရန်နည်းလမ်း",
+                "payload": "fish-two-how-to"
+              },
+              {
+                "type": "web_url",
+                "url": "https://new-hope-a1a0b.web.app/meals/yZx3jlOyLF7u9BGFsDqK?meal=%E1%80%9C%E1%80%BB%E1%80%BE%E1%80%AC%E1%80%92%E1%80%9C%E1%80%80%E1%80%BA%E1%80%9C%E1%80%8A%E1%80%BA%E1%80%84%E1%80%AB%E1%80%B8%E1%80%95%E1%80%AD%E1%80%91%E1%80%B1%E1%80%AC%E1%80%84%E1%80%BA%E1%80%B8",
+                "title": "ဝယ်မယ်",
+                "webview_height_ratio": "full",
+                "messenger_extensions": true,
+              }
+            ]
+          },
+          {
             "title": "ကင်းမွန်အချိုချက်",
             "image_url": "https://firebasestorage.googleapis.com/v0/b/new-hope-a1a0b.appspot.com/o/%E1%80%95%E1%80%84%E1%80%BA%E1%80%9C%E1%80%9A%E1%80%BA%E1%80%85%E1%80%AC%2F%E1%80%80%E1%80%84%E1%80%BA%E1%80%B8%E1%80%99%E1%80%BD%E1%80%94%E1%80%BA%E1%80%A1%E1%80%81%E1%80%BB%E1%80%AD%E1%80%AF%E1%80%81%E1%80%BB%E1%80%80%E1%80%BA.jpeg?alt=media&token=b0863152-24a5-4df6-876a-284bb75b2289",
             "subtitle": "ဒီတစ်ခါ နွေရာသီပူပူမှာခံတွင်းလိုက်စေမယ့်ဟင်းလေးတစ်မယ်ဖော်ပြပေးလိုက်ပါတယ်။",
