@@ -435,7 +435,7 @@ const admin = (sender_psid) => {
             }]
           },
           {
-            "title": "Manage Meals",
+            "title": "Meals Management",
             "buttons": [{
                 "type": "web_url",
                 "title": "view",
@@ -453,7 +453,7 @@ const admin = (sender_psid) => {
             ]
           },
           {
-            "title": "Manage Ingredients",
+            "title": "Ingredients Management",
             "buttons": [{
                 "type": "web_url",
                 "title": "view",
