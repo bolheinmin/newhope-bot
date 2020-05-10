@@ -651,7 +651,8 @@ const popMeals = (sender_psid) => {
 
 /* FUNCTION TO SEARCH BY CATEGORY */
 const searchByCategory = (sender_psid) => {
-  let response1 = {
+  let response;
+  response = {
     "text": "Categories တခုချင်းစီကို နှိပ်ပြီး ရှာလို့ရပါတယ်။",
     "quick_replies": [{
         "content_type": "text",
@@ -685,18 +686,7 @@ const searchByCategory = (sender_psid) => {
       }
     ]
   };
-  let response2 = {
-    "text": "Main Menu သို့ပြန်သွားလိုပါသလားခင်ဗျာ။",
-    "quick_replies": [{
-      "content_type": "text",
-      "title": "အစသို့ပြန်သွားရန်",
-      "image_url": "https://i.imgur.com/YT1qtmF.png",
-      "payload": "main-menu"
-    }]
-  };
-  callSend(sender_psid, response1).then(() => {
-    return callSend(sender_psid, response2);
-  });
+  callSend(sender_psid, response);
 }
 
 /* FUNCTION TO CHICKEN */
