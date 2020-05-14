@@ -367,8 +367,8 @@ async function greetUser(sender_psid) {
           },
           {
             "type": "web_url",
-            "title": "ဝယ်မယ်",
-            "url": "https://new-hope-a1a0b.web.app",
+            "title": "မှာယူမှုမှတ်တမ်းများ",
+            "url": "https://new-hope-a1a0b.web.app/my/orders",
             "webview_height_ratio": "full",
             "messenger_extensions": true,
           }
