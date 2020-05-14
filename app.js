@@ -354,7 +354,7 @@ async function greetUser(sender_psid) {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "New Hope မှာရှိတဲ့ ဟင်းပွဲတွေရဲ့ပါဝင်ပစ္စည်းများဝယ်ဖို့ “ဝယ်မယ်” ဆိုတဲ့ Button ကိုနှိပ်ပြီး ရှာဖွေဝယ်ယူနိုင်ပါတယ်ခင်ဗျ 😉",
+        "text": "မိမိမှာယူထားသော ပစ္စည်းများကိုကြည့်ရန် 'မှာယူမှုမှတ်တမ်းများ' ဆိုတဲ့ Button လေးကိုနှိပ်ပြီး ကြည့်နိုင်ပါတယ်ခင်ဗျ 😉",
         "buttons": [{
             "type": "postback",
             "title": "Admin နဲ့ Chat မယ်",
